@@ -14,8 +14,9 @@ interface BaseButtonProps {
     children: React.ReactNode;
     href?: string;
 }
-
+//button默认原生属性类型
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
+// a 默认原生属性类型
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 const Button:React.FC<ButtonProps> = (props) =>{
