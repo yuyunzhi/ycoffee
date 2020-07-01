@@ -1,7 +1,21 @@
 {
-  "name": "react-components",
+  "name": "ycoffee",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": "yuyunzhi",
+  "description": "一个好用的组件库",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "Component",
+    "UI",
+    "React"
+  ],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
