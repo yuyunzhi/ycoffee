@@ -1,5 +1,5 @@
 import React from 'react';
-import Button , { ButtonSize,ButtonType} from './components/Button/button'
+import Button from './components/Button/button'
 import Icon from './components/Icon/icon'
 
 function App() {
@@ -9,21 +9,25 @@ function App() {
   return (
     <div className="App">
         <div>
-            <Button onClick={onClick} >你好</Button>
-            <Button disabled > 你好</Button>
-            <Button btnType={'danger'} size={'lg'}> 你好</Button>
-            <Button className='custom' > 你好</Button>
+            <Button onClick={onClick} >按钮</Button>
+            <Button disabled > 按钮</Button>
+            <Button btnType={'danger'} size={'lg'}> 按钮</Button>
+            <Button className='custom' > 按钮</Button>
             <Button btnType={'primary'} size={'lg'} style={{display:'flex',flexDirection:'row'}}>
-                <Icon icon="spinner" spin color="white" size="sm" style={{marginRight:'8px'}}></Icon>
-                你好
+                <Icon icon="spinner" spin={true} color="white" size="sm" style={{marginRight:'8px'}}></Icon>
+                按钮
             </Button>
-            <Button btnType='link' href='https://www.baidu.com' disabled> 你好</Button>
-            <Button btnType='link' href='https://www.baidu.com' target='_blank'> 你好</Button>
+            <Button btnType='link' href='https://www.baidu.com' disabled> 按钮</Button>
+            <Button btnType='link' href='https://www.baidu.com' target='_blank'> 按钮</Button>
         </div>
       <hr/>
-        <div>
-            <Icon icon="spinner" spin theme="success" size="3x"></Icon>
+        <div style={{display:'flex',flexDirection:'row'}}>
+            <Icon icon="spinner" spin theme={'success'} size="3x" style={{marginRight:'8px'}}></Icon>
+            <Icon icon="ad" theme={'danger'} size="3x" style={{marginRight:'8px'}}></Icon>
+            <Icon icon="inbox" theme={'info'} size="3x" style={{marginRight:'8px'}}></Icon>
+            <Icon icon="baby" theme={'info'} size="3x" style={{marginRight:'8px'}}></Icon>
         </div>
+      <hr/>
     </div>
   );
 }
