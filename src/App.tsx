@@ -15,36 +15,6 @@ function App() {
             <Icon icon="baby" theme={'info'} size="3x" style={{marginRight:'8px'}}/>
         </div>
       <hr/>
-
-      <div   style={{
-          padding: '20px 40px',
-          width: '500px'
-      }}>
-          <Input disabled placeholder='禁用' />
-          <Input onChange={onChange}/>
-          <Input icon="search" iconPosition='left' placeholder="请输入内容" onChange={onChange}/>
-          <Input icon="search" placeholder="请输入内容" onChange={onChange}/>
-
-          <Input
-              defaultValue="large size"
-              size="lg"
-              onChange={onChange}
-          />
-          <Input
-              placeholder="small size"
-              size="sm"
-          />
-          <Input
-              defaultValue="prepend text"
-              prepend="https://"
-              onChange={onChange}
-          />
-          <Input
-              append=".com"
-              onChange={onChange}
-              defaultValue="google"
-          />
-      </div>
     </div>
   );
 }

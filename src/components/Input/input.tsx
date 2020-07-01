@@ -2,7 +2,6 @@ import React , { ReactElement,InputHTMLAttributes,ChangeEvent}from 'react'
 import classNames from "classnames";
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import Icon from '../Icon/icon'
-import Button from "../Button/button";
 
 type InputSize = 'lg' | 'sm'
 type IconPositionProps = 'left' | 'right'
