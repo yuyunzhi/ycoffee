@@ -1,5 +1,6 @@
 import React from 'react';
 import Button , { ButtonSize,ButtonType} from './components/Button/button'
+import Icon from './components/Icon/icon'
 
 function App() {
     const onClick=()=>{
@@ -7,17 +8,19 @@ function App() {
     }
   return (
     <div className="App">
-        <h1>hello world</h1>
-        <code>
-            const a = b
-        </code>
-        <Button onClick={onClick}> 你好</Button>
-        <Button disabled > 你好</Button>
-        <Button btnType={'danger'} size={'lg'}> 你好</Button>
-        <Button className='custom' > 你好</Button>
-        <Button btnType={'primary'} size={'sm'}> 你好</Button>
-        <Button btnType='link' href='https://www.baidu.com' disabled> 你好</Button>
-        <Button btnType='link' href='https://www.baidu.com' target='_blank'> 你好</Button>
+        <div>
+            <Button onClick={onClick}> 你好</Button>
+            <Button disabled > 你好</Button>
+            <Button btnType={'danger'} size={'lg'}> 你好</Button>
+            <Button className='custom' > 你好</Button>
+            <Button btnType={'primary'} size={'sm'}> 你好</Button>
+            <Button btnType='link' href='https://www.baidu.com' disabled> 你好</Button>
+            <Button btnType='link' href='https://www.baidu.com' target='_blank'> 你好</Button>
+        </div>
+      <hr/>
+        <div>
+            <Icon icon="spinner" spin theme="success" size="3x"></Icon>
+        </div>
     </div>
   );
 }
