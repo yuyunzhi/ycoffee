@@ -163,5 +163,4 @@ const defaultButton = () => (
     </div>
 )
 
-
-storiesOf('Button', module).add('默认Button', defaultButton)
+storiesOf('Button', module).add('Button按钮', defaultButton)

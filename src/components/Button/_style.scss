@@ -14,7 +14,7 @@
     box-shadow: $btn-box-shadow;
     cursor: pointer;
     transition: $btn-transition;
-    &.disabled,
+
     &[disabled] {
       cursor: not-allowed;
       opacity: $btn-disabled-opacity;
@@ -24,7 +24,14 @@
       }
     }
   }
-
+    .btn-disabled{
+      cursor: not-allowed;
+      opacity: $btn-disabled-opacity;
+      box-shadow: none;
+      > * {
+        pointer-events: none;
+      }
+    }
   .btn-lg {
     @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
   }
@@ -32,6 +39,10 @@
     @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
   }
 
+  .btn-disabled{
+    @include button-style($primary, $primary, $white)
+
+  }
   .btn-primary {
     @include button-style($primary, $primary, $white)
   }

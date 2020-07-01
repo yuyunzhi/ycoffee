@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import { render, fireEvent } from '@testing-library/react'
 import Button, { ButtonProps } from './button'
 const defaultProps = {
