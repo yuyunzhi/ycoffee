@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import Icon from './components/Icon/icon'
-
+import {Input} from './components/Input/input'
 function App() {
-    const onClick=()=>{
-        console.log(123)
+    const onChange = ( e : ChangeEvent<HTMLInputElement>)=>{
+        console.log('2222',e.target.value);
     }
   return (
     <div className="App">
@@ -15,6 +15,33 @@ function App() {
             <Icon icon="baby" theme={'info'} size="3x" style={{marginRight:'8px'}}/>
         </div>
       <hr/>
+
+      <div   style={{
+          padding: '20px 40px',
+          width: '500px'
+      }}>
+          <Input disabled placeholder='禁用' />
+          <Input onChange={onChange}/>
+          <Input icon="search" placeholder="请输入内容" onChange={onChange}/>
+          <Input
+              defaultValue="large size"
+              size="lg"
+          />
+          <Input
+              placeholder="small size"
+              size="sm"
+          />
+          <Input
+              defaultValue="prepend text"
+              prepend="https://"
+              onChange={onChange}
+          />
+          <Input
+              append=".com"
+              onChange={onChange}
+              defaultValue="google"
+          />
+      </div>
     </div>
   );
 }

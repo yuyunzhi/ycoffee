@@ -18,19 +18,19 @@
   &:hover {
     color: $hover-color;
     background: $hover-background;
-    border-color: $hover-border;    
+    border-color: $hover-border;
   }
   &:focus,
   &.focus {
     color: $hover-color;
     background: $hover-background;
-    border-color: $hover-border;    
+    border-color: $hover-border;
   }
   &:disabled,
   &.disabled {
     color: $color;
     background: $background;
-    border-color: $border;    
+    border-color: $border;
   }
 }
 
