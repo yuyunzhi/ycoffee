@@ -3,7 +3,6 @@ import classNames from 'classnames'
 
 export type ButtonSize = 'lg' | 'sm'
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
-
 interface BaseButtonProps {
     className?: string;
     /**设置 Button 的禁用 */
@@ -14,6 +13,7 @@ interface BaseButtonProps {
     btnType?: ButtonType;
     children: React.ReactNode;
     href?: string;
+
 }
 //button默认原生属性类型
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
@@ -63,7 +63,7 @@ const Button:React.FC<ButtonProps> = (props) =>{
 
 Button.defaultProps = {
     disabled: false,
-    btnType: 'default'
+    btnType: 'default',
 }
 
 export default Button;
