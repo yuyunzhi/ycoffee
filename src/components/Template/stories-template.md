@@ -27,10 +27,8 @@ const defaultButton = () => (
                                 }
                             </code>
                         </pre>
-
                 </div>
                 <div className='story-liner'></div>
-
             </div>
         </div>
 
