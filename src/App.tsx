@@ -22,10 +22,13 @@ function App() {
       }}>
           <Input disabled placeholder='禁用' />
           <Input onChange={onChange}/>
+          <Input icon="search" iconPosition='left' placeholder="请输入内容" onChange={onChange}/>
           <Input icon="search" placeholder="请输入内容" onChange={onChange}/>
+
           <Input
               defaultValue="large size"
               size="lg"
+              onChange={onChange}
           />
           <Input
               placeholder="small size"

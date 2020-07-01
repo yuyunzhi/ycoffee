@@ -2,9 +2,11 @@ import React , { ReactElement,InputHTMLAttributes,ChangeEvent}from 'react'
 import classNames from "classnames";
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import Icon from '../Icon/icon'
+import Button from "../Button/button";
 
 type InputSize = 'lg' | 'sm'
-
+type IconPositionProps = 'left' | 'right'
+// Omit是为了处理 剔除 InputHTMLAttributes 里的 size 属性
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size' > {
     /**是否禁用 Input */
     disabled?: boolean;
@@ -16,6 +18,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
     prepend?: string | ReactElement;
     /**添加后缀 用于配置一些固定组合 */
     append?: string | ReactElement;
+    iconPosition?:IconPositionProps;
     onChange? : (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -27,6 +30,7 @@ export const Input:React.FC<InputProps> = (props)=>{
         prepend,
         append,
         style,
+        iconPosition,
         ...restProps
     } = props
 
@@ -36,6 +40,14 @@ export const Input:React.FC<InputProps> = (props)=>{
         'input-group': prepend || append,
         'input-group-append': !!append,
         'input-group-prepend': !!prepend
+    })
+
+    const iconPositionClasses = classNames('icon-wrapper',{
+        [`yc-icon-${iconPosition}`] : iconPosition // 控制图标的位置样式
+    })
+
+    const inputInnerClasses = classNames('yc-input-inner',{
+        [`icon-${iconPosition}`] : icon //控制当有icon的时候样式
     })
 
     const fixControlledValue = (value: any) => {
@@ -52,9 +64,9 @@ export const Input:React.FC<InputProps> = (props)=>{
     return(
         <div className={classes} style={style}>
             {prepend && <div className="yc-input-group-prepend">{prepend}</div>}
-            {icon && <div className="icon-wrapper"><Icon icon={icon} title={`title-${icon}`}/></div>}
+            {icon && <div className={iconPositionClasses}><Icon icon={icon} title={`title-${icon}`} /></div>}
             <input
-                className="yc-input-inner"
+                className={inputInnerClasses}
                 disabled={disabled}
                 {...restProps}
             />
@@ -62,5 +74,7 @@ export const Input:React.FC<InputProps> = (props)=>{
         </div>
     )
 }
-
+Input.defaultProps = {
+    iconPosition: 'right',
+}
 export default Input;
