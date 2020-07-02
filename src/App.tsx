@@ -1,9 +1,6 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 
 function App() {
-    const onChange = ( e : ChangeEvent<HTMLInputElement>)=>{
-        console.log('2222',e.target.value);
-    }
   return (
     <div className="App">
       <hr/>
