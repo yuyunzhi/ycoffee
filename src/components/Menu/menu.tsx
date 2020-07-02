@@ -1,5 +1,6 @@
 import React,{ CSSProperties, createContext, useState }from 'react';
 import classNames from "classnames";
+import { MenuItemProps } from './menuItem'
 
 type MenuMode = 'horizontal' | 'vertical'
 
@@ -16,7 +17,7 @@ export interface MenuProps {
     defaultOpenSubMenus?: string[];
 }
 interface IMenuContext {
-    index: string;
+    index?: string;
     onSelect?: (selectedIndex: string) => void;
     mode?: MenuMode;
     defaultOpenSubMenus?: string[];
@@ -28,7 +29,8 @@ const Menu:React.FC<MenuProps> = (props)=>{
     const {className, defaultIndex, mode, style, onSelect, defaultOpenSubMenus, children} = props
     const [currentActive,setCurrentActive] = useState(defaultIndex)
     const classes = classNames('yc-menu',className,{
-        [`menu-vertical`]:mode === 'vertical'
+        [`menu-vertical`]:mode === 'vertical',
+        [`menu-horizontal`]:mode !== 'vertical'
     })
 
     const handleClick = (index:string)=>{
@@ -43,11 +45,24 @@ const Menu:React.FC<MenuProps> = (props)=>{
         onSelect:handleClick
     }
 
-    console.log('passedContext',passedContext);
+    const renderChildren = () => {
+        return React.Children.map(children, (child, index) => {
+            const childElement = child as React.FunctionComponentElement<MenuItemProps>
+            const { displayName } = childElement.type
+            if (displayName === 'MenuItem' || displayName === 'SubMenu') {
+                return React.cloneElement(childElement, {
+                    index: index.toString()
+                })
+            } else {
+                console.error("Warning: Menu has a child which is not a MenuItem component")
+            }
+        })
+    }
+
     return (
         <ul className={classes}>
             <MenuContext.Provider value={passedContext}>
-                {children}
+                {renderChildren()}
             </MenuContext.Provider>
         </ul>
     )

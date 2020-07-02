@@ -20,8 +20,10 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@types/react-transition-group": "^4.4.0",
     "airbnb": "^0.0.2",
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
