@@ -1,6 +1,6 @@
 {
   "name": "ycoffee",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "author": "yuyunzhi",
   "description": "一个好用的组件库",
@@ -20,25 +20,13 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@storybook/addon-info": "^5.3.19",
-    "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^9.3.2",
-    "@types/classnames": "^2.2.10",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
     "classnames": "^2.2.6",
-    "css-loader": "^3.6.0",
-    "git-cz": "^4.7.0",
-    "node-sass": "^4.14.1",
-    "postcss-loader": "^3.0.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1",
-    "typescript": "~3.7.2"
+    "react-dom": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "clean": "rimraf ./dist",
@@ -72,6 +60,22 @@
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.1.2",
-    "@storybook/react": "^5.3.19"
+    "@storybook/react": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "node-sass": "^4.14.1",
+    "react-scripts": "3.4.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "typescript": "~3.7.2",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^9.3.2",
+    "css-loader": "^3.6.0",
+    "git-cz": "^4.7.0",
+    "postcss-loader": "^3.0.0"
   }
 }
