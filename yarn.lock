@@ -2785,6 +2785,13 @@ airbnb-js-shims@^2.2.1:
     string.prototype.padstart "^3.0.0"
     symbol.prototype.description "^1.0.0"
 
+airbnb@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/airbnb/-/airbnb-0.0.2.tgz#8d949cce0e6c653b7d0fa430fc27ed77483a619c"
+  integrity sha512-eC+7zzGrcM///BKt04V23v+W3b9dWDUltOzo0j5lzjhvvMc4EiSxh55k2vlVnHTZ0igqA8/i/1j2j+m7UlZ54w==
+  dependencies:
+    chalk "^2.4.2"
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
@@ -3248,7 +3255,7 @@ babel-jest@^24.9.0:
     chalk "^2.4.2"
     slash "^2.0.0"
 
-babel-loader@8.1.0:
+babel-loader@8.1.0, babel-loader@^8.1.0:
   version "8.1.0"
   resolved "https://registry.npmjs.org/babel-loader/-/babel-loader-8.1.0.tgz#c611d5112bd5209abe8b9fa84c3e4da25275f1c3"
   integrity sha512-7q7nC1tYOrqvUrN3LQK4GwSk/TQorZSOlO9C+RZDZpODgyN4ZlCqE5q9cDsyWOliN+aU9B4JX01xK9eJXowJLw==
