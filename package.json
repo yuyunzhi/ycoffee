@@ -31,12 +31,14 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "eslint . --ext .js,.ts,.tsx src --max-warnings 5",
     "build": "npm run clean && npm run build-ts && npm run build-css",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
+    "test:nowatch": "cross-env CI=true react-scripts test",
     "build-ts": "tsc -p tsconfig.build.json",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepublish": "yarn run build"
+    "prepublish": "npm run test:nowatch && npm run lint && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,27 +57,28 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.1.2",
     "@storybook/react": "^5.3.19",
-    "@storybook/addon-info": "^5.3.19",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^9.3.2",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.6.0",
+    "git-cz": "^4.7.0",
     "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
-    "typescript": "~3.7.2",
-    "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^9.3.2",
-    "css-loader": "^3.6.0",
-    "git-cz": "^4.7.0",
-    "postcss-loader": "^3.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "typescript": "~3.7.2"
   }
 }
