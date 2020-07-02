@@ -1,6 +1,6 @@
 {
   "name": "ycoffee",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "private": false,
   "author": "yuyunzhi",
   "description": "一个好用的组件库",
@@ -41,12 +41,16 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
+    "clean": "rimraf ./dist",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
+    "build-ts": "tsc -p tsconfig.build.json",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepublish": "yarn run build"
   },
   "eslintConfig": {
     "extends": "react-app"
