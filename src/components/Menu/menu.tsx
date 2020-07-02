@@ -49,7 +49,6 @@ const Menu:React.FC<MenuProps> = (props)=>{
             <MenuContext.Provider value={passedContext}>
                 {children}
             </MenuContext.Provider>
-
         </ul>
     )
 }
