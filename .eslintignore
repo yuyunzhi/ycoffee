@@ -7,3 +7,4 @@ yarn.lock
 src/serviceWorker.ts
 src/react-app-env.d.ts
 src/**/*.stories.tsx
+storybook-static/
