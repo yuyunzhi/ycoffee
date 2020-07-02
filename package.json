@@ -20,9 +20,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "classnames": "^2.2.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "classnames": "^2.2.6"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -76,6 +74,8 @@
     "@testing-library/react": "^9.3.2",
     "css-loader": "^3.6.0",
     "git-cz": "^4.7.0",
-    "postcss-loader": "^3.0.0"
+    "postcss-loader": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
