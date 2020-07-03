@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
         <div style={{display:'flex',flexDirection:'row'}}>
-            <Menu onSelect={onSelect} defaultIndex="2" mode="vertical" >
+            <Menu onSelect={onSelect} defaultIndex="2" mode="vertical" defaultOpenSubMenus={["3"]}>
                 <MenuItem>
                     cool link0
                 </MenuItem>

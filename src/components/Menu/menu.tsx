@@ -42,7 +42,9 @@ const Menu:React.FC<MenuProps> = (props)=>{
 
     const passedContext : IMenuContext = {
         index:currentActive?currentActive:"0",
-        onSelect:handleClick
+        onSelect:handleClick,
+        defaultOpenSubMenus,
+        mode
     }
 
     const renderChildren = () => {
