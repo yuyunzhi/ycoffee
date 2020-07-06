@@ -56,7 +56,7 @@
     white-space: nowrap;
     //transition: $menu-transition;
     .menu-item {
-      padding: $menu-item-padding-y 0;
+      padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;
       transition: $menu-transition;
       color: $body-color;
@@ -90,9 +90,15 @@
   border-right: $menu-border-width solid $menu-border-color;
   >.menu-item {
     border-left: $menu-item-active-border-width solid transparent;
+
     &.is-active, &:hover {
       border-bottom: 0px;
       border-left: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+  }
+  .yc-submenu {
+    .menu-item{
+      padding: $menu-item-padding-y 0;
     }
   }
 }
