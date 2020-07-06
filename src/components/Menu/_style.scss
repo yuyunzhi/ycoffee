@@ -56,7 +56,7 @@
     white-space: nowrap;
     //transition: $menu-transition;
     .menu-item {
-      padding: $menu-item-padding-y $menu-item-padding-x;
+      padding: $menu-item-padding-y 0;
       cursor: pointer;
       transition: $menu-transition;
       color: $body-color;
