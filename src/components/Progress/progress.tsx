@@ -1,6 +1,5 @@
 import React, { FC, CSSProperties } from 'react'
 import { ThemeProps } from '../Icon/icon'
-import classNames from 'classnames'
 
 type textPositionProps = 'in' | 'out'
 export interface ProgressProps {
@@ -17,7 +16,6 @@ export interface ProgressProps {
 /**
  * ### 引入方式
  * ~~~js
- * import { Progress } from 'mack-design';
  * ~~~
  */
 export const Progress: FC<ProgressProps> = ({
@@ -31,6 +29,7 @@ export const Progress: FC<ProgressProps> = ({
     if(percent<0 || percent>100){
         console.error('percent 应在范围在 0 ～ 100')
     }
+
     return (
         <div className="progress-bar" style={styles}>
             <div className="progress-bar-outer" style={{ height: `${strokeHeight}px` }}>
@@ -43,7 +42,6 @@ export const Progress: FC<ProgressProps> = ({
                 { showText && textPosition === 'out'  && <span className='inner-text out'>{`${percent}%`}</span> }
 
             </div>
-
         </div>
     )
 }
