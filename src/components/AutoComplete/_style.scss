@@ -1,7 +1,7 @@
-.viking-auto-complete {
+.yc-auto-complete {
   position: relative;
 }
-.viking-suggestion-list {
+.yc-suggestion-list {
   list-style:none;
   padding-left: 0;
   white-space: nowrap;
@@ -13,7 +13,9 @@
   border: $menu-border-width solid $menu-border-color;
   box-shadow: $submenu-box-shadow;
   width: 100%;
-  .suggstions-loading-icon {
+  height: 200px;
+  overflow: auto;
+  .suggestions-loading-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,12 +26,15 @@
     cursor: pointer;
     transition: $menu-transition;
     color: $body-color;
+
     &.is-active {
       background: $menu-item-active-color !important;
       color: $white !important;
     }
+
     &:hover {
-      color: $menu-item-active-color !important;
+      //color: $menu-item-active-color !important;
+      background:$menu-item-background;
     }
   }
 }
