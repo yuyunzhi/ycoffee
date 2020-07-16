@@ -30,7 +30,6 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const [ inputValue, setInputValue ] = useState(value as string)
 
   const [ suggestions, setSugestions ] = useState<DataSourceType[]>([])
-  const [ loading, setLoading ] = useState(false)
   const [ showDropdown, setShowDropdown] = useState(false)
   const [ highlightIndex, setHighlightIndex] = useState(-1)
   const triggerSearch = useRef(false)
@@ -44,9 +43,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       setSugestions([])
       const results = fetchSuggestions(debouncedValue)
       if (results instanceof Promise) {
-        setLoading(true)
         results.then(data => {
-          setLoading(false)
           setSugestions(data)
           if (data.length > 0) {
             setShowDropdown(true)
@@ -118,18 +115,12 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const generateDropdown = () => {
     return (
       <Transition
-        in={showDropdown || loading}
+        in={showDropdown}
         animation="zoom-in-top"
         timeout={300}
         onExited={() => {setSugestions([])}}
       >
         { suggestions.length>0?<ul className="yc-suggestion-list">
-
-          { loading &&
-            <div className="suggestions-loading-icon">
-              <Icon icon="spinner" spin/>
-            </div>
-          }
 
           { suggestions.map((item, index) => {
 
@@ -144,7 +135,9 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
             )
           })}
 
-        </ul> : <div></div>}
+        </ul> : <div></div>
+
+        }
       </Transition>
     )
   }
