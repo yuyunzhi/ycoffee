@@ -13,7 +13,7 @@
   border: $menu-border-width solid $menu-border-color;
   box-shadow: $submenu-box-shadow;
   width: 100%;
-  height: 200px;
+  max-height: 200px;
   overflow: auto;
   .suggestions-loading-icon {
     display: flex;
