@@ -123,7 +123,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         timeout={300}
         onExited={() => {setSugestions([])}}
       >
-        <ul className="yc-suggestion-list">
+        { suggestions.length>0?<ul className="yc-suggestion-list">
 
           { loading &&
             <div className="suggestions-loading-icon">
@@ -144,7 +144,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
             )
           })}
 
-        </ul>
+        </ul> : <div></div>}
       </Transition>
     )
   }
