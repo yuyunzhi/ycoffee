@@ -14,9 +14,11 @@ const defaultInput = () => (
                     <div style={{width: '200px'}}>
                         <Input disabled placeholder='禁用' />
                     </div>
+                     <hr style={{ background: 'transparent' }} />
                     <div style={{width: '200px'}}>
                         <Input readOnly defaultValue='这是默认值' />
                     </div>
+                    <hr style={{ background: 'transparent' }} />
                     <div style={{width: '200px'}}>
                         <Input onChange={action('这是onChange事件监听')} placeholder="请输入内容……"/>
                     </div>
@@ -43,6 +45,7 @@ const defaultInput = () => (
                 <div className='story-content'>
                     <div style={{width: '300px'}}>
                         <Input icon="people-arrows" iconPosition='left' placeholder="请输入内容" onChange={action('这是onChange事件监听')}/>
+                        <hr style={{ background: 'transparent' }} />
                         <Input icon="search" placeholder="请输入内容" onChange={action('这是onChange事件监听')}/>
                     </div>
 
@@ -68,7 +71,11 @@ const defaultInput = () => (
                 <div className='story-content'>
                     <div style={{width: '300px'}}>
                         <Input placeholder="大尺寸" size="lg"/>
+                        <hr style={{ background: 'transparent' }} />
+
                         <Input placeholder="常规尺寸"/>
+                        <hr style={{ background: 'transparent' }} />
+
                         <Input placeholder="小尺寸" size="sm"/>
                     </div>
 
@@ -95,6 +102,8 @@ const defaultInput = () => (
                 <div className='story-content'>
                     <div style={{width: '300px'}}>
                         <Input defaultValue="prepend text" prepend="https://" />
+                    <hr style={{ background: 'transparent' }} />
+
                         <Input append=".com" defaultValue="google"/>
                     </div>
 
