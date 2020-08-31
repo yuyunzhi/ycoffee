@@ -5,8 +5,8 @@ import SubMenu, { SubMenuProps } from './subMenu'
 import MenuItem, { MenuItemProps } from './menuItem'
 
 export type IMenuComponent = FC<MenuProps> & {
-    Item: FC<MenuItemProps>,
-    SubMenu: FC<SubMenuProps>
+  Item: FC<MenuItemProps>
+  SubMenu: FC<SubMenuProps>
 }
 
 const TransMenu = Menu as IMenuComponent

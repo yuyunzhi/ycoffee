@@ -2,12 +2,12 @@ import React, { FC, useState, DragEvent } from 'react'
 import classNames from 'classnames'
 
 interface DraggerProps {
-  onFile: (files: FileList) => void;
+  onFile: (files: FileList) => void
 }
 
 export const Dragger: FC<DraggerProps> = (props) => {
   const { onFile, children } = props
-  const [ dragOver, setDragOver ] = useState(false)
+  const [dragOver, setDragOver] = useState(false)
   const klass = classNames('yc-uploader-dragger', {
     'is-dragover': dragOver
   })
@@ -23,8 +23,12 @@ export const Dragger: FC<DraggerProps> = (props) => {
   return (
     <div
       className={klass}
-      onDragOver={e => { handleDrag(e, true)}}
-      onDragLeave={e => { handleDrag(e, false)}}
+      onDragOver={(e) => {
+        handleDrag(e, true)
+      }}
+      onDragLeave={(e) => {
+        handleDrag(e, false)
+      }}
       onDrop={handleDrop}
     >
       {children}
@@ -32,4 +36,4 @@ export const Dragger: FC<DraggerProps> = (props) => {
   )
 }
 
-export default Dragger;
+export default Dragger
