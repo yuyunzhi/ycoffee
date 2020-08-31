@@ -18,6 +18,7 @@ interface DataSourceObject {
   value: string
 }
 
+// 既满足DataSourceObject {value:string} 或者满足传入的T泛型 的交叉类型，比如 {a:string,b:number}
 export type DataSourceType<T = {}> = T & DataSourceObject
 
 // 表示继承 inputProps 但排除onSelect
@@ -48,7 +49,6 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const componentRef = useRef<HTMLDivElement>(null)
 
   const debouncedValue = useDebounce(inputValue, 300)
-
   useClickOutside(componentRef, () => {
     setSugestions([])
   })
