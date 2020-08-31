@@ -5,21 +5,6 @@ import '../../styles/index.scss'
 import '../../styles/storybook.scss'
 import AutoComplete from './autoComplete'
 
-// const lakers = [
-//   'bradley',
-//   'pope',
-//   'caruso',
-//   'cook',
-//   'cousins',
-//   'james',
-//   'AD',
-//   'green',
-//   'howard',
-//   'kuzma',
-//   'McGee',
-//   'rando'
-// ]
-
 const lakersWithNumber = [
   { value: 'bradley', number: 11 },
   { value: 'pope', number: 1 },
@@ -32,20 +17,6 @@ const lakersWithNumber = [
   { value: 'howard', number: 39 },
   { value: 'kuzma', number: 0 }
 ]
-
-const ajax = () => {
-  return new Promise((reslove) => {
-    reslove(lakers)
-  })
-}
-
-// const handleFetch = (query: string): any => {
-//   ajax().then((res: any) => {
-//     return res
-//       .filter((name: any) => name.includes(query))
-//       .map((name: any) => ({ value: name }))
-//   })
-// }
 
 const handleFetch = (query: string) => {
   return lakersWithNumber.filter((player) => player.value.includes(query))

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import { Input, InputProps } from './input'
 
@@ -15,9 +15,7 @@ describe('test Input component', () => {
     ) as HTMLInputElement
     expect(testNode).toBeInTheDocument()
     expect(testNode).toHaveClass('yc-input-inner')
-    fireEvent.change(testNode, { target: { value: '23' } })
-    expect(defaultProps.onChange).toHaveBeenCalled()
-    expect(testNode.value).toEqual('23')
+
   })
   it('should render the disabled Input on disabled property', () => {
     const wrapper = render(<Input disabled placeholder="disabled" />)
