@@ -3,6 +3,8 @@ import React from 'react'
 // import AutoComplete from "./components/AutoComplete/autoComplete";
 import Icon from './components/Icon/icon'
 import { Upload } from './components/Upload/upload'
+import {AutoComplete} from './components/AutoComplete/autoComplete'
+
 // interface LakerPlayerProps {
 //     value: string;
 //     number: number;
@@ -67,8 +69,20 @@ function App() {
   //   return Promise.resolve(newFile)
   // }
 
+  const a = ['11111', 'a', 'ccc']
+  const handleChange = (keyword: string) => {
+    return a.filter((item:string) => item.includes(keyword))
+  }
+
+  const handleSelect = (item:string) => {
+      console.log(item)
+      
+  }
   return (
     <div className="App">
+      <AutoComplete 
+      onSelect={handleSelect}
+      fetchSuggestions={handleChange} data={a} />
       {/*<Progress percent={40}  styles={{width:'50%'}}/>*/}
       {/*<hr/>*/}
       {/*<Progress percent={20} strokeHeight={20} styles={{width:'50%'}}/>*/}

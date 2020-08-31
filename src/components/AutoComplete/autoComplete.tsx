@@ -7,6 +7,7 @@ import React, {
   useEffect,
   useRef
 } from 'react'
+
 import classNames from 'classnames'
 import Input, { InputProps } from '../Input/input'
 import Icon from '../Icon/icon'
@@ -20,6 +21,7 @@ interface DataSourceObject {
 
 export type DataSourceType<T = {}> = T & DataSourceObject
 
+// 表示继承 inputProps 但排除onSelect
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
   fetchSuggestions: (
     str: string
