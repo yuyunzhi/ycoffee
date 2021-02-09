@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 // import Progress from "./components/Progress/progress";
 // import AutoComplete from "./components/AutoComplete/autoComplete";
-import Icon from './components/Icon/icon'
-import { Upload } from './components/Upload/upload'
-
+import Icon from "./components/Icon/icon";
+import { Upload } from "./components/Upload/upload";
+import Button from "./components/Button/index";
 
 function App() {
   // const lakers = ['bradley', 'pope', 'caruso', 'cook', 'cousins',
@@ -11,11 +11,11 @@ function App() {
   //     'james', 'AD', 'green', 'howard', 'kuzma', 'McGee', 'rando']
 
   const uploadOnChange = (e: any) => {
-    console.log(`[uploadOnChange]`, e)
-  }
+    console.log(`[uploadOnChange]`, e);
+  };
   const uploadOnRemove = (e: any) => {
-    console.log(`[uploadOnRemove]`, e)
-  }
+    console.log(`[uploadOnRemove]`, e);
+  };
 
   // const defaultFileList: UploadFile[] = [
   //   { uid: '123', size: 1234, name: 'hello.md', status: 'uploading', percent: 30 },
@@ -35,6 +35,7 @@ function App() {
   // }
   return (
     <div className="App">
+      <Button size="sm">按钮</Button>
 
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -49,7 +50,7 @@ function App() {
         <p>Drag file over to upload</p>
       </Upload>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

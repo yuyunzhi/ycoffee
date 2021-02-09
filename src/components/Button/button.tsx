@@ -1,26 +1,29 @@
-import React, {ButtonHTMLAttributes, AnchorHTMLAttributes} from 'react'
-import classNames from 'classnames'
+import React, { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
+import classNames from "classnames";
 
-export type ButtonSize = 'lg' | 'sm'
-export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
+export type ButtonSize = "lg" | "sm";
+export type ButtonType = "primary" | "default" | "danger" | "link";
 
 interface BaseButtonProps {
-  className?: string
+  className?: string;
   /**设置 Button 的禁用 */
-  disabled?: boolean
+  disabled?: boolean;
   /**设置 Button 的尺寸 */
-  size?: ButtonSize
+  size?: ButtonSize;
   /**设置 Button 的类型 */
-  btnType?: ButtonType
-  children: React.ReactNode
-  href?: string
+  btnType?: ButtonType;
+  children: React.ReactNode;
+  href?: string;
 }
 
 //button默认原生属性类型
-type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 // a 默认原生属性类型
-type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
-export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
+
+// 全部变成可选
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
+
 const Button: React.FC<ButtonProps> = (props) => {
   const {
     btnType,
@@ -30,34 +33,34 @@ const Button: React.FC<ButtonProps> = (props) => {
     children,
     href,
     ...restProps
-  } = props
+  } = props;
 
   // btn btn-lg btn-primary
-  const classes = classNames('btn', className, {
+  const classes = classNames("btn", className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    'btn-disabled': btnType !== 'link' && disabled,
-    disabled: btnType === 'link' && disabled
-  })
+    "btn-disabled": btnType !== "link" && disabled,
+    disabled: btnType === "link" && disabled,
+  });
 
-  if (btnType === 'link' && href) {
+  if (btnType === "link" && href) {
     return (
-        <a className={classes} href={href} {...restProps}>
-          {children}
-        </a>
-    )
+      <a className={classes} href={href} {...restProps}>
+        {children}
+      </a>
+    );
   } else {
     return (
-        <div className={classes} {...restProps}>
-          {children}
-        </div>
-    )
+      <div className={classes} {...restProps}>
+        {children}
+      </div>
+    );
   }
-}
+};
 
 Button.defaultProps = {
   disabled: false,
-  btnType: 'default'
-}
+  btnType: "default",
+};
 
-export default Button
+export default Button;
