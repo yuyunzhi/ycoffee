@@ -5,29 +5,29 @@ import React, {
   KeyboardEvent,
   ReactElement,
   useEffect,
-  useRef
-} from 'react'
+  useRef,
+} from "react";
 
-import classNames from 'classnames'
-import Input, { InputProps } from '../Input/input'
-import Transition from '../Transition/transition'
-import useDebounce from '../../hooks/useDebounce'
-import useClickOutside from '../../hooks/useClickOutside'
+import classNames from "classnames";
+import Input, { InputProps } from "../Input/input";
+import Transition from "../Transition/transition";
+import useDebounce from "../../hooks/useDebounce";
+import useClickOutside from "../../hooks/useClickOutside";
 
 interface DataSourceObject {
-  value: string
+  value: string;
 }
 
 // 既满足DataSourceObject {value:string} 或者满足传入的T泛型 的交叉类型，比如 {a:string,b:number}
-export type DataSourceType<T = {}> = T & DataSourceObject
+export type DataSourceType<T = {}> = T & DataSourceObject;
 
 // 表示继承 inputProps 但排除onSelect
-export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
+export interface AutoCompleteProps extends Omit<InputProps, "onSelect"> {
   fetchSuggestions: (
     str: string
-  ) => DataSourceType[] | Promise<DataSourceType[]>
-  onSelect?: (item: DataSourceType) => void
-  renderOption?: (item: DataSourceType) => ReactElement
+  ) => DataSourceType[] | Promise<DataSourceType[]>;
+  onSelect?: (item: DataSourceType) => void;
+  renderOption?: (item: DataSourceType) => ReactElement;
 }
 
 export const AutoComplete: FC<AutoCompleteProps> = (props) => {
@@ -37,95 +37,96 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     value,
     renderOption,
     ...restProps
-  } = props
+  } = props;
 
-  const [inputValue, setInputValue] = useState(value as string)
+  const [inputValue, setInputValue] = useState(value as string);
 
-  const [suggestions, setSugestions] = useState<DataSourceType[]>([])
-  const [showDropdown, setShowDropdown] = useState(false)
-  const [highlightIndex, setHighlightIndex] = useState(-1)
-  const triggerSearch = useRef(false)
+  const [suggestions, setSugestions] = useState<DataSourceType[]>([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [highlightIndex, setHighlightIndex] = useState(-1);
+  const triggerSearch = useRef(false);
 
-  const componentRef = useRef<HTMLDivElement>(null)
+  const componentRef = useRef<HTMLDivElement>(null);
 
-  const debouncedValue = useDebounce(inputValue, 300)
+  const debouncedValue = useDebounce(inputValue, 300);
+
   useClickOutside(componentRef, () => {
-    setSugestions([])
-  })
+    setSugestions([]);
+  });
 
   useEffect(() => {
     if (debouncedValue && triggerSearch.current) {
-      setSugestions([])
-      const results = fetchSuggestions(debouncedValue)
+      setSugestions([]);
+      const results = fetchSuggestions(debouncedValue);
       if (results instanceof Promise) {
         results.then((data) => {
-          setSugestions(data)
+          setSugestions(data);
           if (data.length > 0) {
-            setShowDropdown(true)
+            setShowDropdown(true);
           }
-        })
+        });
       } else {
-        setSugestions(results)
-        setShowDropdown(true)
+        setSugestions(results);
+        setShowDropdown(true);
         if (results.length > 0) {
-          setShowDropdown(true)
+          setShowDropdown(true);
         }
       }
     } else {
-      setShowDropdown(false)
+      setShowDropdown(false);
     }
-    setHighlightIndex(-1)
-  }, [debouncedValue, fetchSuggestions])
+    setHighlightIndex(-1);
+  }, [debouncedValue, fetchSuggestions]);
 
   const highlight = (index: number) => {
-    if (index < 0) index = 0
+    if (index < 0) index = 0;
     if (index >= suggestions.length) {
-      index = suggestions.length - 1
+      index = suggestions.length - 1;
     }
-    setHighlightIndex(index)
-  }
+    setHighlightIndex(index);
+  };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    console.log('e.keyCode', e.keyCode)
+    console.log("e.keyCode", e.keyCode);
     switch (e.keyCode) {
       case 13: //Enter
         if (suggestions[highlightIndex]) {
-          handleSelect(suggestions[highlightIndex])
+          handleSelect(suggestions[highlightIndex]);
         }
-        break
+        break;
       case 38: // Up
-        highlight(highlightIndex - 1)
-        break
+        highlight(highlightIndex - 1);
+        break;
       case 40: // Down
-        highlight(highlightIndex + 1)
-        break
+        highlight(highlightIndex + 1);
+        break;
       case 27: // Esc
-        setShowDropdown(false)
-        break
+        setShowDropdown(false);
+        break;
       default:
-        break
+        break;
     }
-  }
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.trim()
-    setInputValue(value)
-    triggerSearch.current = true
-  }
+    const value = e.target.value.trim();
+    setInputValue(value);
+    triggerSearch.current = true;
+  };
 
   const handleSelect = (item: DataSourceType) => {
-    console.log('[handleSelect] item', item)
-    setInputValue(item.value)
-    setShowDropdown(false)
+    console.log("[handleSelect] item", item);
+    setInputValue(item.value);
+    setShowDropdown(false);
     if (onSelect) {
-      onSelect(item)
+      onSelect(item);
     }
-    triggerSearch.current = false
-  }
+    triggerSearch.current = false;
+  };
 
   const renderTemplate = (item: DataSourceType) => {
-    return renderOption ? renderOption(item) : item.value
-  }
+    return renderOption ? renderOption(item) : item.value;
+  };
 
   const generateDropdown = () => {
     return (
@@ -134,15 +135,15 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         animation="zoom-in-top"
         timeout={300}
         onExited={() => {
-          setSugestions([])
+          setSugestions([]);
         }}
       >
         {suggestions.length > 0 ? (
           <ul className="yc-suggestion-list">
             {suggestions.map((item, index) => {
-              const cnames = classNames('suggestion-item', {
-                'is-active': index === highlightIndex
-              })
+              const cnames = classNames("suggestion-item", {
+                "is-active": index === highlightIndex,
+              });
 
               return (
                 <div
@@ -152,15 +153,15 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
                 >
                   {renderTemplate(item)}
                 </div>
-              )
+              );
             })}
           </ul>
         ) : (
           <div></div>
         )}
       </Transition>
-    )
-  }
+    );
+  };
   return (
     <div className="yc-auto-complete" ref={componentRef}>
       <Input
@@ -171,7 +172,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       />
       {generateDropdown()}
     </div>
-  )
-}
+  );
+};
 
-export default AutoComplete
+export default AutoComplete;
