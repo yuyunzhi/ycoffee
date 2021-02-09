@@ -1,6 +1,8 @@
-# icon选用解决方案为 react-fontawesome
+# icon 选用解决方案为 react-fontawesome
 
 安装
+
+https://fontawesome.com/how-to-use/on-the-web/using-with/react
 
 ```$xslt
 $ yarn add @fortawesome/fontawesome-svg-core
@@ -22,7 +24,7 @@ library.add(fas)
 <FontAwesomeIcon icon="spinner" spin size="10x" />
 ```
 
-具体使用文档FontAwesomeIcon的各种属性参考：https://github.com/FortAwesome/react-fontawesome
+具体使用文档 FontAwesomeIcon 的各种属性参考：https://github.com/FortAwesome/react-fontawesome
 
 官网地址：https://fontawesome.com/icons?d=gallery&m=free
 
