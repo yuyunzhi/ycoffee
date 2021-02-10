@@ -4,6 +4,7 @@ import React from "react";
 import Icon from "./components/Icon/icon";
 import { Upload } from "./components/Upload/upload";
 import Button from "./components/Button/index";
+import TransMenu from "./components/Menu";
 
 function App() {
   // const lakers = ['bradley', 'pope', 'caruso', 'cook', 'cousins',
@@ -33,22 +34,43 @@ function App() {
   //   const newFile = new File([file], 'new_name.docx', {type: file.type})
   //   return Promise.resolve(newFile)
   // }
+
+  const xxx = (e: any) => {
+    console.log(e);
+  };
   return (
     <div className="App">
       <Button size="sm">按钮</Button>
 
-      <Upload
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-        onChange={uploadOnChange}
-        onRemove={uploadOnRemove}
-        name="fileName"
-        multiple
-        drag
+      <TransMenu
+        onSelect={xxx}
+        defaultName="a"
+        mode="horizontal"
+        defaultOpenSubMenus={["3"]}
       >
-        <Icon icon="upload" size="5x" theme="primary" />
-        <br />
-        <p>Drag file over to upload</p>
-      </Upload>
+        <TransMenu.Item name="0" disabled>
+          link0
+        </TransMenu.Item>
+        <TransMenu.Item name="1">link1</TransMenu.Item>
+        <TransMenu.Item name="2">link2</TransMenu.Item>
+        <TransMenu.SubMenu name="3" title={"二级"}>
+          <TransMenu.Item name="3-1">link3</TransMenu.Item>
+          <TransMenu.Item name="3-2">link4</TransMenu.Item>
+        </TransMenu.SubMenu>
+      </TransMenu>
+
+      {/*<Upload*/}
+      {/*  action="https://www.mocky.io/v2/5cc8019d300000980a055e76"*/}
+      {/*  onChange={uploadOnChange}*/}
+      {/*  onRemove={uploadOnRemove}*/}
+      {/*  name="fileName"*/}
+      {/*  multiple*/}
+      {/*  drag*/}
+      {/*>*/}
+      {/*  <Icon icon="upload" size="5x" theme="primary" />*/}
+      {/*  <br />*/}
+      {/*  <p>Drag file over to upload</p>*/}
+      {/*</Upload>*/}
     </div>
   );
 }
