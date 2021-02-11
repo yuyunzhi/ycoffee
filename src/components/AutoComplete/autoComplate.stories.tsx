@@ -4,6 +4,7 @@ import { action } from "@storybook/addon-actions";
 import "../../styles/index.scss";
 import "../../styles/storybook.scss";
 import AutoComplete from "./autoComplete";
+import DataSourceType from "./autoComplete";
 
 const lakersWithNumber = [
   { value: "bradley", number: 11 },
