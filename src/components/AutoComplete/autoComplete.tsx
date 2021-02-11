@@ -87,7 +87,6 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    console.log("e.keyCode", e.keyCode);
     switch (e.keyCode) {
       case 13: //Enter
         if (suggestions[highlightIndex]) {
