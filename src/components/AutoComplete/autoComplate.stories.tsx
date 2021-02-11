@@ -1,41 +1,42 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import '../../styles/index.scss'
-import '../../styles/storybook.scss'
-import AutoComplete from './autoComplete'
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
+import "../../styles/index.scss";
+import "../../styles/storybook.scss";
+import AutoComplete from "./autoComplete";
 
 const lakersWithNumber = [
-  { value: 'bradley', number: 11 },
-  { value: 'pope', number: 1 },
-  { value: 'caruso', number: 4 },
-  { value: 'cook', number: 2 },
-  { value: 'cousins', number: 15 },
-  { value: 'james', number: 23 },
-  { value: 'AD', number: 3 },
-  { value: 'green', number: 14 },
-  { value: 'howard', number: 39 },
-  { value: 'kuzma', number: 0 }
-]
+  { value: "bradley", number: 11 },
+  { value: "pope", number: 1 },
+  { value: "caruso", number: 4 },
+  { value: "cook", number: 2 },
+  { value: "cousins", number: 15 },
+  { value: "james", number: 23 },
+  { value: "AD", number: 3 },
+  { value: "green", number: 14 },
+  { value: "howard", number: 39 },
+  { value: "kuzma", number: 0 },
+];
 
 const handleFetch = (query: string) => {
-  return lakersWithNumber.filter((player) => player.value.includes(query))
-}
+  return lakersWithNumber.filter((player) => player.value.includes(query));
+};
 
 const renderOption = (item: any): any => {
-  return item.value+'这是操作的值'
-}
+  return item.value + "这是操作的值";
+};
 const autoComplete = () => (
   <div className="story-container">
     <div className="story-header">AutoComplete 自动填充</div>
     <div className="story-demo-box">
       <div className="story-demo-main">
         <div className="story-content">
-          <div style={{ width: '200px' }}>
+          <div style={{ width: "200px" }}>
             <AutoComplete
+              placeholder="请输入搜索内容"
               fetchSuggestions={handleFetch}
-              onSelect={action('selected')}
-              style={{ marginRight: '20px' }}
+              onSelect={action("selected")}
+              style={{ marginRight: "20px" }}
             />
           </div>
         </div>
@@ -78,11 +79,11 @@ const handleFetch = (query: string) => {
 
       <div className="story-demo-main">
         <div className="story-content">
-          <div style={{ width: '200px' }}>
+          <div style={{ width: "200px" }}>
             <AutoComplete
               fetchSuggestions={handleFetch}
-              onSelect={action('selected')}
-              style={{ marginRight: '20px' }}
+              onSelect={action("selected")}
+              style={{ marginRight: "20px" }}
               renderOption={renderOption}
             />
           </div>
@@ -146,6 +147,6 @@ const renderOption = (item: DataSourceType): ReactElement => {
       </table>
     </div>
   </div>
-)
+);
 
-storiesOf('AutoComplete', module).add('AutoComplete', autoComplete)
+storiesOf("AutoComplete", module).add("AutoComplete", autoComplete);
