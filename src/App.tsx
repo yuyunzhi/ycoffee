@@ -1,8 +1,5 @@
 import React from "react";
-// import Progress from "./components/Progress/progress";
-// import AutoComplete from "./components/AutoComplete/autoComplete";
-import Icon from "./components/Icon/icon";
-import { Upload } from "./components/Upload/upload";
+
 import Button from "./components/Button/index";
 import TransMenu from "./components/Menu";
 
@@ -10,13 +7,6 @@ function App() {
   // const lakers = ['bradley', 'pope', 'caruso', 'cook', 'cousins',
   //     'james', 'AD', 'green', 'howard', 'kuzma', 'McGee', 'rando','bradley', 'pope', 'caruso', 'cook', 'cousins',
   //     'james', 'AD', 'green', 'howard', 'kuzma', 'McGee', 'rando']
-
-  const uploadOnChange = (e: any) => {
-    console.log(`[uploadOnChange]`, e);
-  };
-  const uploadOnRemove = (e: any) => {
-    console.log(`[uploadOnRemove]`, e);
-  };
 
   // const defaultFileList: UploadFile[] = [
   //   { uid: '123', size: 1234, name: 'hello.md', status: 'uploading', percent: 30 },

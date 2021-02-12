@@ -16,6 +16,11 @@
   "files": [
     "dist"
   ],
+  "homepage": "http://yuyunzhi.com/ycoffee",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuyunzhi/ycoffee"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
@@ -42,7 +47,7 @@
     "build-ts": "tsc -p tsconfig.build.json",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "husky": {
     "hooks": {
@@ -53,7 +58,6 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest",
       "prettier"
     ]
   },
