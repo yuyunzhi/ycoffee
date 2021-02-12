@@ -1,4 +1,4 @@
-import { configure, addDecorator, addParameters } from "@storybook/react";
+import { configure, addDecorator } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import React from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";

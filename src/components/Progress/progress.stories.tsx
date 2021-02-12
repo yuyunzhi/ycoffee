@@ -1,9 +1,8 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import '../../styles/index.scss'
-import '../../styles/storybook.scss'
-import Progress from './progress'
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import "../../styles/index.scss";
+import "../../styles/storybook.scss";
+import Progress from "./progress";
 
 const progress = () => (
   <div className="story-container">
@@ -11,17 +10,17 @@ const progress = () => (
     <div className="story-demo-box">
       <div className="story-demo-main">
         <div className="story-content">
-          <div style={{ width: '50%' }}>
+          <div style={{ width: "50%" }}>
             <Progress percent={40} theme="secondary" />
-            <hr style={{ background: 'transparent' }} />
+            <hr style={{ background: "transparent" }} />
             <Progress percent={20} strokeHeight={20} theme="success" />
-            <hr style={{ background: 'transparent' }} />
-            <Progress percent={100} strokeHeight={30} textPosition={'out'} />
-            <hr style={{ background: 'transparent' }} />
+            <hr style={{ background: "transparent" }} />
+            <Progress percent={100} strokeHeight={30} textPosition={"out"} />
+            <hr style={{ background: "transparent" }} />
             <Progress
               percent={5}
               strokeHeight={30}
-              textPosition={'out'}
+              textPosition={"out"}
               theme="danger"
             />
           </div>
@@ -29,8 +28,9 @@ const progress = () => (
         <div className="story-desc">
           <a className="story-desc-title">基础</a>
           <div>
-            使用 percent 设置高亮度百分比，使用 strokeHeight 设置进度条高度，使用 textPosition 设置百分比数字位置，
-            使用 theme 设置主题色
+            使用 percent 设置高亮度百分比，使用 strokeHeight
+            设置进度条高度，使用 textPosition 设置百分比数字位置， 使用 theme
+            设置主题色
           </div>
         </div>
         <div className="story-code">
@@ -64,9 +64,7 @@ const progress = () => (
           </tr>
           <tr>
             <th>percent</th>
-            <th>
-              高亮百分比
-            </th>
+            <th>高亮百分比</th>
             <th>Number</th>
             <th>必须要填写</th>
           </tr>
@@ -85,20 +83,16 @@ const progress = () => (
           <tr>
             <th>theme</th>
             <th>进度条主题色</th>
-            <th>String | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'info'
-  | 'warning'
-  | 'danger'
-  | 'light'
-  | 'dark'</th>
+            <th>
+              String | 'primary' | 'secondary' | 'success' | 'info' | 'warning'
+              | 'danger' | 'light' | 'dark'
+            </th>
             <th>primary </th>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-)
+);
 
-storiesOf('Progress', module).add('Progress', progress)
+storiesOf("Progress", module).add("Progress", progress);
