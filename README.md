@@ -2,7 +2,10 @@
 
 [![Build Status](https://travis-ci.org/yuyunzhi/ycoffee.svg?branch=master)](https://travis-ci.org/yuyunzhi/ycoffee)
 
-[![npm version](https://badge.fury.io/js/ycoffee.svg)](https://badge.fury.io/js/ycoffee)
+# 项目介绍
+
+- 该项目使用了 storybook 搭建官网
+- 技术栈：React Hooks + TypeScript
 
 # storybook install
 
