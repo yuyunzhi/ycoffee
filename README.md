@@ -1,3 +1,6 @@
+# ycoffee 组件库
+
+[![Build Status](https://travis-ci.org/yuyunzhi/ycoffee.svg?branch=master)](https://travis-ci.org/yuyunzhi/ycoffee)
 
 # storybook install
 
@@ -17,5 +20,4 @@ npm run storybook
 
 - 动画：react-transition-group
 - 图标：@fortawesome/react-fontawesome
-- 对className操作：classnames
-
+- 对 className 操作：classnames
