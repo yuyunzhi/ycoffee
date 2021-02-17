@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/yuyunzhi/ycoffee.svg?branch=master)](https://travis-ci.org/yuyunzhi/ycoffee)
 
+[![npm version](https://badge.fury.io/js/ycoffee.svg)](https://badge.fury.io/js/ycoffee)
+
 # storybook install
 
 安装
