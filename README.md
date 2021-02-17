@@ -6,6 +6,8 @@
 
 - 该项目使用了 storybook 搭建官网
 - 技术栈：React Hooks + TypeScript
+- 工程搭建使用了：pre-commit、git-cz、prettier
+- CI、CD：Github Page + Travis 自动化部署
 
 # storybook install
 
