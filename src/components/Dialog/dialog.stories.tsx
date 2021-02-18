@@ -1,10 +1,10 @@
-import React, { ReactElement, ReactNode } from "react";
+import React, { ReactElement, useState } from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import "../../styles/index.scss";
 import "../../styles/storybook.scss";
 import Button from "../Button";
-import { modal } from "./dialog";
+import Dialog, { alert, confirm, modal } from "./dialog";
 
 const defaultDialog = () => {
   const openModal1 = () => {
@@ -43,11 +43,74 @@ const defaultDialog = () => {
       }
     );
   };
+  const [dialogVisible, setDialogVisible] = useState<boolean>(false);
 
   return (
     <div className="story-container">
       <div className="story-header">Dialog 对话框</div>
       <div className="story-demo-box">
+        <div className="story-demo-main">
+          <div className="story-content">
+            <div>
+              <Button onClick={() => alert("你好")}>alert</Button>
+            </div>
+          </div>
+          <div className="story-desc">
+            <a className="story-desc-title">基础</a>
+            <div>使用 alert()函数直接动态创建弹框。</div>
+          </div>
+          <div className="story-code">
+            <pre>
+              <code className="story-code-hljs">
+                {`<Button onClick={() => alert("你好")}>alert</Button>
+`}
+              </code>
+            </pre>
+          </div>
+          <div className="story-liner"></div>
+        </div>
+        <div className="story-demo-main">
+          <div className="story-content">
+            <div>
+              <Button
+                onClick={() =>
+                  confirm(
+                    "你好",
+                    () => {
+                      action("你点击了yes");
+                    },
+                    () => {
+                      action("你点击了no");
+                    }
+                  )
+                }
+              >
+                confirm
+              </Button>
+            </div>
+          </div>
+          <div className="story-desc">
+            <a className="story-desc-title">基础</a>
+            <div>
+              使用
+              confirm()函数直接动态创建弹框，默认含有取消和确定按钮并分别带有回调函数
+            </div>
+          </div>
+          <div className="story-code">
+            <pre>
+              <code className="story-code-hljs">
+                {`<Button
+       onClick={() =>
+              confirm("你好", 
+                  () => {action("你点击了确定")}, 
+                  () => {action("你点击了取消")}
+            )}
+>confirm</Button>`}
+              </code>
+            </pre>
+          </div>
+          <div className="story-liner"></div>
+        </div>
         <div className="story-demo-main">
           <div className="story-content">
             <div>
@@ -103,6 +166,66 @@ const defaultDialog = () => {
           </div>
           <div className="story-liner"></div>
         </div>
+        <div className="story-demo-main">
+          <div className="story-content">
+            <div>
+              <Button onClick={() => setDialogVisible(!dialogVisible)}>
+                click
+              </Button>
+              <Dialog
+                visible={dialogVisible}
+                buttons={[
+                  <Button
+                    onClick={() => {
+                      setDialogVisible(false);
+                    }}
+                    style={{ marginRight: "10px" }}
+                  >
+                    取消
+                  </Button>,
+                  <Button
+                    btnType="primary"
+                    onClick={() => {
+                      setDialogVisible(false);
+                    }}
+                  >
+                    确定
+                  </Button>,
+                ]}
+                onClose={() => {
+                  setDialogVisible(false);
+                }}
+              >
+                <div>你好</div>
+              </Dialog>
+            </div>
+          </div>
+          <div className="story-desc">
+            <a className="story-desc-title">基础</a>
+            <div>
+              使用
+              Dialog组件直接动态创建弹框,通过控制visible来设置弹框的显示与否。接收buttons元素数组展示在弹框底部,buttons为可选参数。
+            </div>
+          </div>
+          <div className="story-code">
+            <pre>
+              <code className="story-code-hljs">
+                {`const [dialogVisible,setDialogVisible] = useState<boolean>(false)
+
+<Button onClick={()=> setDialogVisible(true)}>click</Button>
+<Dialog visible={dialogVisible} buttons={
+  [
+    <Button onClick={() => {setDialogVisible(false)}} style={{marginRight:'10px'}}>取消</Button>,
+    <Button btnType="primary" onClick={() => {setDialogVisible(false)}}>确定</Button>
+  ]
+} onClose={() => {setDialogVisible(false)}}>
+  <div>你好</div>
+</Dialog>`}
+              </code>
+            </pre>
+          </div>
+          <div className="story-liner"></div>
+        </div>
       </div>
 
       <div className="story-api">API</div>
@@ -116,28 +239,28 @@ const defaultDialog = () => {
               <th>默认值</th>
             </tr>
             <tr>
-              <th>btnType</th>
-              <th>可选参数类型 ：'primary' | 'default' | 'danger' | 'link'</th>
-              <th>String</th>
-              <th>default</th>
-            </tr>
-            <tr>
-              <th>size</th>
-              <th>可选参数类型 ：'lg' | 'sm'</th>
-              <th>String</th>
-              <th>-</th>
-            </tr>
-            <tr>
-              <th>disabled</th>
-              <th>是否禁用</th>
+              <th>visible</th>
+              <th> 控制弹框显示与否</th>
               <th>Boolean</th>
               <th>false</th>
             </tr>
             <tr>
-              <th>onClick</th>
-              <th>点击事件</th>
+              <th>buttons</th>
+              <th>可选参数:在底部自定义button和对应事件</th>
+              <th>Array</th>
               <th>-</th>
+            </tr>
+            <tr>
+              <th>onClose</th>
+              <th>关闭事件回调</th>
+              <th>函数</th>
               <th>-</th>
+            </tr>
+            <tr>
+              <th>closeOnClickMask</th>
+              <th>可选参数，是否点击遮罩层关闭</th>
+              <th>boolean</th>
+              <th>false</th>
             </tr>
           </tbody>
         </table>
