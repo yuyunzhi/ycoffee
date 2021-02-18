@@ -14,8 +14,18 @@ function App() {
     const close = modal(
       <div>
         <h1>你好</h1>
-        <Button onClick={() => close()}>close</Button>
-      </div>
+      </div>,
+      [
+        <Button onClick={() => close()} style={{ marginRight: "10px" }}>
+          取消
+        </Button>,
+        <Button btnType="primary" onClick={() => close()}>
+          确定
+        </Button>,
+      ],
+      () => {
+        console.log("123关闭成功");
+      }
     );
   };
 
@@ -48,29 +58,46 @@ function App() {
 
       {/*<div style={{position: 'relative', zIndex: 1, border: '1px solid red', color: 'red'}}>*/}
       {/*  <h1>example 1</h1>*/}
-      {/*  <button onClick={() => setX(!x)}>click</button>*/}
+      {/*  <Button onClick={() => setX(!x)}>click</Button>*/}
       {/*  <Dialog visible={x} buttons={*/}
       {/*    [*/}
-      {/*      <button onClick={() => {setX(false);}}>1</button>,*/}
-      {/*      <button onClick={() => {setX(false);}}>2</button>*/}
+      {/*      <Button onClick={() => {setX(false);}} style={{marginRight:'10px'}}>取消</Button>,*/}
+      {/*      <Button btnType="primary" onClick={() => {setX(false);}}>确定</Button>*/}
       {/*    ]*/}
       {/*  } onClose={() => {setX(false);}}>*/}
       {/*    <strong>hi</strong>*/}
       {/*  </Dialog>*/}
       {/*</div>*/}
 
-      {/*<div style={{position: 'relative', zIndex: 1}}>*/}
-      {/*  <h1>example 2</h1>*/}
-      {/*  <Button onClick={() => setY(!y)}>click</Button>*/}
-      {/*  <Dialog visible={y} closeOnClickMask={true} buttons={*/}
-      {/*    [*/}
-      {/*      <Button onClick={() => {setY(false);}}>1</Button>,*/}
-      {/*      <Button onClick={() => {setY(false);}}>2</Button>*/}
-      {/*    ]*/}
-      {/*  } onClose={() => {setY(false);}}>*/}
-      {/*    <strong>hi</strong>*/}
-      {/*  </Dialog>*/}
-      {/*</div>*/}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <h1>example 2</h1>
+        <Button onClick={() => setY(!y)}>click</Button>
+        <Dialog
+          visible={y}
+          closeOnClickMask={true}
+          buttons={[
+            <Button
+              onClick={() => {
+                setY(false);
+              }}
+            >
+              1
+            </Button>,
+            <Button
+              onClick={() => {
+                setY(false);
+              }}
+            >
+              2
+            </Button>,
+          ]}
+          onClose={() => {
+            setY(false);
+          }}
+        >
+          <strong>hi</strong>
+        </Dialog>
+      </div>
     </div>
   );
 }

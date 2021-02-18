@@ -59,6 +59,7 @@ const modal = (
     ReactDOM.render(React.cloneElement(component, { visible: false }), div);
     ReactDOM.unmountComponentAtNode(div);
     div.remove();
+    afterClose && afterClose();
   };
   const component = (
     <Dialog
@@ -66,7 +67,6 @@ const modal = (
       buttons={buttons}
       onClose={() => {
         close();
-        afterClose && afterClose();
       }}
     >
       {content}
@@ -77,10 +77,16 @@ const modal = (
   ReactDOM.render(component, div);
   return close;
 };
+
 const alert = (content: string) => {
-  const button = <Button onClick={() => close()}>OK</Button>;
+  const button = (
+    <Button onClick={() => close()} size="sm" btnType="primary">
+      确定
+    </Button>
+  );
   const close = modal(content, [button]);
 };
+
 const confirm = (content: string, yes?: () => void, no?: () => void) => {
   const onYes = () => {
     close();
@@ -90,6 +96,7 @@ const confirm = (content: string, yes?: () => void, no?: () => void) => {
     close();
     no && no();
   };
+
   const buttons = [
     <Button onClick={onNo} size="sm" className="yc-dialog-cancel-button">
       取消
@@ -98,7 +105,10 @@ const confirm = (content: string, yes?: () => void, no?: () => void) => {
       确定
     </Button>,
   ];
+
   const close = modal(content, buttons, no);
 };
+
 export { alert, confirm, modal };
+
 export default Dialog;
