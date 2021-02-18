@@ -39,7 +39,7 @@ const defaultDialog = () => {
         </Button>,
       ],
       () => {
-        console.log("关闭成功");
+        action("关闭成功");
       }
     );
   };
