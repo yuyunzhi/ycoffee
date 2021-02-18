@@ -1,0 +1,63 @@
+.yc-dialog {
+    position: fixed; background: white; min-width: 35em;
+    z-index: 2;
+    border-radius: 4px; top: 30%; left: 50%; transform: translate(-50%, -50%);
+    &-mask {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        height: 100%;
+        background: fade_out(black, 0.5);
+    }
+    &-header {
+        //font-size: 22px;
+        //padding: 8px 16px;
+        //border-bottom: 1px solid grey;
+        padding: 16px 24px;
+        color: rgba(0,0,0,.85);
+        background: #fff;
+        border-bottom: 1px solid #f0f0f0;
+        border-radius: 2px 2px 0 0;
+
+    }
+    &-main {
+        padding: 8px 16px;
+        min-height: 6em;
+        padding: 24px;
+        font-size: 14px;
+        line-height: 1.5715;
+    }
+    &-footer {
+        border-top: 1px solid grey;
+        display: flex;
+        justify-content: flex-end;
+
+        padding: 10px 16px;
+        text-align: right;
+        background: 0 0;
+        border-top: 1px solid #f0f0f0;
+        border-radius: 0 0 2px 2px;
+    }
+    &-close {
+        position: absolute;
+        bottom: 100%;
+        left: 100%;
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        transform: translate(-50%, 50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        &-icon{
+            cursor: pointer;
+            position: absolute;
+            top: 25px;
+            left: -6px;
+        }
+    }
+}
