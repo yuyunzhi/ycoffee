@@ -12,19 +12,23 @@ interface Props {
 }
 
 const Dialog: React.FunctionComponent<Props> = (props) => {
-  const onClickClose: React.MouseEventHandler = (e) => {
-    props.onClose(e);
-  };
-  const onClickMask: React.MouseEventHandler = (e) => {
-    if (props.closeOnClickMask) {
-      props.onClose(e);
-    }
-  };
-  const result = props.visible && (
+  const {
+    onClose,
+    visible,
+    title,
+    buttons,
+    closeOnClickMask,
+    children,
+  } = props;
+
+  const result = visible && (
     <Fragment>
-      <div className="yc-dialog-mask" onClick={onClickMask} />
+      <div
+        className="yc-dialog-mask"
+        onClick={(e) => closeOnClickMask && onClose(e)}
+      />
       <div className="yc-dialog">
-        <div className="yc-dialog-close" onClick={onClickClose}>
+        <div className="yc-dialog-close" onClick={(e) => onClose(e)}>
           <Icon
             icon="times"
             size="sm"
@@ -32,14 +36,12 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
             className="yc-dialog-close-icon"
           />
         </div>
-        <header className="yc-dialog-header">
-          {props.title ? props.title : "提示"}
-        </header>
-        <main className="yc-dialog-main">{props.children}</main>
-        {props.buttons && props.buttons.length > 0 && (
+        <header className="yc-dialog-header">{title ? title : "提示"}</header>
+        <main className="yc-dialog-main">{children}</main>
+        {buttons && buttons.length > 0 && (
           <footer className="yc-dialog-footer">
-            {props.buttons &&
-              props.buttons.map((button, index) =>
+            {buttons &&
+              buttons.map((button, index) =>
                 React.cloneElement(button, { key: index })
               )}
           </footer>
@@ -90,14 +92,18 @@ const alert = (content: string) => {
   const close = modal(content, [button]);
 };
 
-const confirm = (content: string, yes?: () => void, no?: () => void) => {
+const confirm = (
+  content: string,
+  confirmFn?: () => void,
+  cancelFn?: () => void
+) => {
   const onYes = () => {
     close();
-    yes && yes();
+    confirmFn && confirmFn();
   };
   const onNo = () => {
     close();
-    no && no();
+    cancelFn && cancelFn();
   };
 
   const buttons = [
@@ -109,7 +115,7 @@ const confirm = (content: string, yes?: () => void, no?: () => void) => {
     </Button>,
   ];
 
-  const close = modal(content, buttons, no);
+  const close = modal(content, buttons, cancelFn);
 };
 
 export { alert, confirm, modal };
