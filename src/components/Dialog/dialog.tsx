@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement, ReactNode } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import Icon from "../Icon";
 import ReactDOM from "react-dom";
 import Button from "../Button";
@@ -62,10 +62,7 @@ const modal = (
 ) => {
   // 动态删除组件
   const close = () => {
-    ReactDOM.render(
-      React.cloneElement(component, { content: <div>123123</div> }),
-      div
-    );
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
     ReactDOM.unmountComponentAtNode(div);
     div.remove();
     afterClose && afterClose();
