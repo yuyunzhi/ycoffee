@@ -165,7 +165,7 @@ const defaultDialog = () => {
               </code>
             </pre>
           </div>
-          <div className="story-liner"></div>
+          <div className="story-liner" />
         </div>
         <div className="story-demo-main">
           <div className="story-content">

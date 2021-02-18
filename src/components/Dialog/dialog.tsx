@@ -22,7 +22,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
   } = props;
 
   const result = visible && (
-    <Fragment>
+    <>
       <div
         className="yc-dialog-mask"
         onClick={(e) => closeOnClickMask && onClose(e)}
@@ -47,7 +47,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
           </footer>
         )}
       </div>
-    </Fragment>
+    </>
   );
   return ReactDOM.createPortal(result, document.body);
 };
@@ -60,12 +60,18 @@ const modal = (
   buttons?: Array<ReactElement>,
   afterClose?: () => void
 ) => {
+  // 动态删除组件
   const close = () => {
-    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.render(
+      React.cloneElement(component, { content: <div>123123</div> }),
+      div
+    );
     ReactDOM.unmountComponentAtNode(div);
     div.remove();
     afterClose && afterClose();
   };
+
+  // 动态创建组件 并渲染
   const component = (
     <Dialog
       visible={true}
