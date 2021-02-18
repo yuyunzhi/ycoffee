@@ -5,6 +5,7 @@ import Button from "../Button";
 
 interface Props {
   visible: boolean;
+  title?: string;
   buttons?: Array<ReactElement>;
   onClose: React.MouseEventHandler;
   closeOnClickMask?: boolean;
@@ -31,7 +32,9 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
             className="yc-dialog-close-icon"
           />
         </div>
-        <header className="yc-dialog-header">提示</header>
+        <header className="yc-dialog-header">
+          {props.title ? props.title : "提示"}
+        </header>
         <main className="yc-dialog-main">{props.children}</main>
         {props.buttons && props.buttons.length > 0 && (
           <footer className="yc-dialog-footer">
@@ -49,6 +52,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
 Dialog.defaultProps = {
   closeOnClickMask: false,
 };
+
 const modal = (
   content: ReactNode,
   buttons?: Array<ReactElement>,
