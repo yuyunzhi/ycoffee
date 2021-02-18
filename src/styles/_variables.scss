@@ -167,7 +167,6 @@ $mark-bg: #fcf8e3 !default;
 $hr-margin-y: $spacer !default;
 
 // Code
-
 $code-font-size: $small-font-size !default;
 $code-color: $pink !default;
 $pre-color: null !default;
@@ -176,7 +175,6 @@ $pre-color: null !default;
 $enable-pointer-cursor-for-buttons: true !default;
 
 // 边框 和 border radius
-
 $border-width: 1px !default;
 $border-color: $gray-300 !default;
 
@@ -308,3 +306,17 @@ $progress-border-radius: $border-radius !default;
 $progress-bar-color: $white !default;
 $progress-out-bar-color: $gray-600 !default;
 $progress-bar-transition: width .6s ease !default;
+
+// dialog
+$dialog-bg:$white !default;
+$dialog-min-width:35em !default;
+$dialog-border-radius:$border-radius !default;
+$dialog-header-border-radius: $border-radius $border-radius 0 0 !default;
+$dialog-footer-border-radius: 0 0 $border-radius $border-radius !default;
+$dialog-padding:1em 2em !default;
+$dialog-min-height:6em !default;
+$dialog-body-padding:1.5em !default;
+$dialog-footer-padding:0.8em 1em !default;
+$dialog-font-size:$font-size-base !default;
+$dialog-line-height:$line-height-base !default;
+$dialog-border-color:$gray-200 !default;

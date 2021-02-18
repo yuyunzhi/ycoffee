@@ -1,5 +1,4 @@
 import React, { Fragment, ReactElement, ReactNode } from "react";
-import "./_style.scss";
 import Icon from "../Icon";
 import ReactDOM from "react-dom";
 import Button from "../Button";
