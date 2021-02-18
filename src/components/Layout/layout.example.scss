@@ -1,0 +1,32 @@
+.header-or-footer {
+    height: 40px;
+    background: #7dbcea;
+    margin: 4px 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    background: rgba(16, 142, 233, 1);
+    margin: 4px 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aside {
+    background: #3ba0e9;
+    width: 100px;
+    margin: 4px 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aside + .content, .content + .aside, .aside + .yc-layout {
+    margin-left: 8px;
+}

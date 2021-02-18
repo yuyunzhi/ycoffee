@@ -1,7 +1,7 @@
 // config
 @import "variables";
 
-//layout
+//Layout
 @import "reboot";
 
 //mixin
@@ -33,3 +33,6 @@
 
 //dialog
 @import "../components/Dialog/style";
+
+//layout
+@import "../components/Layout/style";

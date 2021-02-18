@@ -7,8 +7,6 @@ import Button from "../Button/index";
 import Dialog, { alert, confirm, modal } from "./index";
 
 const defaultDialog = () => {
-  const [dialogVisible, setDialogVisible] = useState<boolean>(false);
-
   const openModal1 = () => {
     modal(
       <div>
@@ -31,6 +29,25 @@ const defaultDialog = () => {
     const close = modal(
       <div>
         <h4>你好</h4>
+      </div>,
+      [
+        <Button onClick={() => close()} style={{ marginRight: "10px" }}>
+          取消
+        </Button>,
+        <Button btnType="primary" onClick={() => close()}>
+          确定
+        </Button>,
+      ],
+      () => {
+        action("关闭成功");
+      }
+    );
+  };
+
+  const openModal4 = () => {
+    const close = modal(
+      <div>
+        <div>你好</div>
       </div>,
       [
         <Button onClick={() => close()} style={{ marginRight: "10px" }}>
@@ -170,35 +187,7 @@ const defaultDialog = () => {
         <div className="story-demo-main">
           <div className="story-content">
             <div>
-              <Button onClick={() => setDialogVisible(!dialogVisible)}>
-                click
-              </Button>
-              <Dialog
-                visible={dialogVisible}
-                buttons={[
-                  <Button
-                    onClick={() => {
-                      setDialogVisible(false);
-                    }}
-                    style={{ marginRight: "10px" }}
-                  >
-                    取消
-                  </Button>,
-                  <Button
-                    btnType="primary"
-                    onClick={() => {
-                      setDialogVisible(false);
-                    }}
-                  >
-                    确定
-                  </Button>,
-                ]}
-                onClose={() => {
-                  setDialogVisible(false);
-                }}
-              >
-                <div>你好</div>
-              </Dialog>
+              <Button onClick={() => openModal4()}>click</Button>
             </div>
           </div>
           <div className="story-desc">
@@ -212,7 +201,6 @@ const defaultDialog = () => {
             <pre>
               <code className="story-code-hljs">
                 {`const [dialogVisible,setDialogVisible] = useState<boolean>(false)
-
 <Button onClick={()=> setDialogVisible(true)}>click</Button>
 <Dialog visible={dialogVisible} buttons={
   [

@@ -461,7 +461,7 @@ textarea {
 //    So we reset that to ensure fieldsets behave more like a standard block element.
 //    See https://github.com/twbs/bootstrap/issues/12359
 //    and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
-// 2. Reset the default outline behavior of fieldsets so they don't affect page layout.
+// 2. Reset the default outline behavior of fieldsets so they don't affect page Layout.
 
 fieldset {
     min-width: 0; // 1

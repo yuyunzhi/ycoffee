@@ -1,3 +1,5 @@
+$prefix: yc;
+
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
@@ -320,3 +322,25 @@ $dialog-footer-padding:0.8em 1em !default;
 $dialog-font-size:$font-size-base !default;
 $dialog-line-height:$line-height-base !default;
 $dialog-border-color:$gray-200 !default;
+
+
+@mixin component($name) {
+    .#{$prefix}-#{$name} {
+        @content;
+    }
+}
+
+@function component($name, $modifier:null) {
+    @if $modifier == null {
+        @return ".#{$prefix}-#{$name}"
+    } @else {
+        @return ".#{$prefix}-#{$name}-#{$modifier}"
+    }
+}
+@function componentWithoutDot($name, $modifier:null) {
+    @if $modifier == null {
+        @return "#{$prefix}-#{$name}"
+    } @else {
+        @return "#{$prefix}-#{$name}-#{$modifier}"
+    }
+}
