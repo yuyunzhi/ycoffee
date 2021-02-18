@@ -1,10 +1,17 @@
 .yc-dialog {
-    position: fixed; background: white; min-width: 35em;
+    position: fixed;
+    background: white;
+    min-width: 35em;
     z-index: 2;
-    border-radius: 4px; top: 30%; left: 50%; transform: translate(-50%, -50%);
-    &-cancel-button{
+    border-radius: 4px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &-cancel-button {
         margin-right: 10px;
     }
+
     &-mask {
         position: fixed;
         top: 0;
@@ -15,19 +22,22 @@
         height: 100%;
         background: fade_out(black, 0.5);
     }
+
     &-header {
         padding: 16px 24px;
-        color: rgba(0,0,0,.85);
+        color: rgba(0, 0, 0, .85);
         background: #fff;
         border-bottom: 1px solid #f0f0f0;
         border-radius: 2px 2px 0 0;
     }
+
     &-main {
         min-height: 6em;
         padding: 24px;
         font-size: 14px;
         line-height: 1.5715;
     }
+
     &-footer {
         border-top: 1px solid grey;
         display: flex;
@@ -38,6 +48,7 @@
         border-top: 1px solid #f0f0f0;
         border-radius: 0 0 2px 2px;
     }
+
     &-close {
         position: absolute;
         bottom: 100%;
@@ -50,7 +61,8 @@
         justify-content: center;
         align-items: center;
         color: white;
-        &-icon{
+
+        &-icon {
             cursor: pointer;
             position: absolute;
             top: 25px;
