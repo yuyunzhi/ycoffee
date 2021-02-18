@@ -1,6 +1,6 @@
 // import Icon from "./components/Icon/icon";
 // import { Upload } from "./components/Upload/upload";
-// import Button from "./components/Button/index";
+import Button from "./components/Button/index";
 
 import React, { useState } from "react";
 // @ts-ignore
@@ -14,7 +14,7 @@ function App() {
     const close = modal(
       <div>
         <h1>你好</h1>
-        <button onClick={() => close()}>close</button>
+        <Button onClick={() => close()}>close</Button>
       </div>
     );
   };
@@ -23,13 +23,13 @@ function App() {
     <div className="App">
       <div>
         <h1>example 4</h1>
-        <button onClick={openModal}>modal</button>
+        <Button onClick={openModal}>modal</Button>
       </div>
 
       <div>
         <h1>example 3</h1>
-        <button onClick={() => alert("1")}>alert</button>
-        <button
+        <Button onClick={() => alert("1")}>alert</Button>
+        <Button
           onClick={() =>
             confirm(
               "1",
@@ -43,10 +43,10 @@ function App() {
           }
         >
           confirm
-        </button>
+        </Button>
       </div>
 
-      {/*<div style={{position: 'relative', zIndex: 10, border: '1px solid red', color: 'red'}}>*/}
+      {/*<div style={{position: 'relative', zIndex: 1, border: '1px solid red', color: 'red'}}>*/}
       {/*  <h1>example 1</h1>*/}
       {/*  <button onClick={() => setX(!x)}>click</button>*/}
       {/*  <Dialog visible={x} buttons={*/}
@@ -59,13 +59,13 @@ function App() {
       {/*  </Dialog>*/}
       {/*</div>*/}
 
-      {/*<div style={{position: 'relative', zIndex: 9}}>*/}
+      {/*<div style={{position: 'relative', zIndex: 1}}>*/}
       {/*  <h1>example 2</h1>*/}
-      {/*  <button onClick={() => setY(!y)}>click</button>*/}
+      {/*  <Button onClick={() => setY(!y)}>click</Button>*/}
       {/*  <Dialog visible={y} closeOnClickMask={true} buttons={*/}
       {/*    [*/}
-      {/*      <button onClick={() => {setY(false);}}>1</button>,*/}
-      {/*      <button onClick={() => {setY(false);}}>2</button>*/}
+      {/*      <Button onClick={() => {setY(false);}}>1</Button>,*/}
+      {/*      <Button onClick={() => {setY(false);}}>2</Button>*/}
       {/*    ]*/}
       {/*  } onClose={() => {setY(false);}}>*/}
       {/*    <strong>hi</strong>*/}

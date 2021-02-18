@@ -2,6 +2,7 @@ import React, { Fragment, ReactElement, ReactNode } from "react";
 import "./_style.scss";
 import Icon from "../Icon";
 import ReactDOM from "react-dom";
+import Button from "../Button";
 
 interface Props {
   visible: boolean;
@@ -77,7 +78,7 @@ const modal = (
   return close;
 };
 const alert = (content: string) => {
-  const button = <button onClick={() => close()}>OK</button>;
+  const button = <Button onClick={() => close()}>OK</Button>;
   const close = modal(content, [button]);
 };
 const confirm = (content: string, yes?: () => void, no?: () => void) => {
@@ -90,8 +91,12 @@ const confirm = (content: string, yes?: () => void, no?: () => void) => {
     no && no();
   };
   const buttons = [
-    <button onClick={onYes}>yes</button>,
-    <button onClick={onNo}>no</button>,
+    <Button onClick={onNo} size="sm" className="yc-dialog-cancel-button">
+      取消
+    </Button>,
+    <Button onClick={onYes} size="sm" btnType="primary">
+      确定
+    </Button>,
   ];
   const close = modal(content, buttons, no);
 };
