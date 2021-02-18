@@ -95,8 +95,8 @@ const defaultDialog = () => {
     );
   };
   
-<Button onClick={openModal1} style={{marginRight: '20px'}}>常规</Button>
-<Button onClick={openModal2} style={{marginRight: '20px'}}>可内部操作关闭</Button>
+<Button onClick={openModal1}>常规</Button>
+<Button onClick={openModal2}>可内部操作关闭</Button>
 <Button onClick={openModal3}>关闭后调用函数</Button>`}
               </code>
             </pre>
