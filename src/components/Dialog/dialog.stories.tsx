@@ -1,12 +1,14 @@
-import React, { ReactElement, useState } from "react";
+import React, { useState } from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import "../../styles/index.scss";
 import "../../styles/storybook.scss";
-import Button from "../Button";
-import Dialog, { alert, confirm, modal } from "./dialog";
+import Button from "../Button/index";
+import Dialog, { alert, confirm, modal } from "./index";
 
 const defaultDialog = () => {
+  const [dialogVisible, setDialogVisible] = useState<boolean>(false);
+
   const openModal1 = () => {
     modal(
       <div>
@@ -43,7 +45,6 @@ const defaultDialog = () => {
       }
     );
   };
-  const [dialogVisible, setDialogVisible] = useState<boolean>(false);
 
   return (
     <div className="story-container">
