@@ -5,7 +5,6 @@ import "../../styles/index.scss";
 import "../../styles/storybook.scss";
 import Button from "../Button";
 import cityList from "../../utils/cityList";
-// @ts-ignore
 import CitySelect from "./citySelect";
 
 const defaultCitySelect = () => (

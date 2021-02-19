@@ -19,4 +19,5 @@ export { default as Footer } from "./components/Layout";
 export { default as Content } from "./components/Layout";
 export { default as Aside } from "./components/Layout";
 
-export { default as citySelect } from "./components/CitySelect";
+export { default as CitySelect } from "./components/CitySelect";
+export { default as Scroll } from "./components/Scroll";

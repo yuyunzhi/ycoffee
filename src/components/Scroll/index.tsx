@@ -1,9 +1,3 @@
-import React, { FC } from "react";
+import Scroll from "./scroll";
 
-interface ITitle {}
-
-const Title: FC<ITitle> = (props) => {
-  return <div>x</div>;
-};
-
-export default Title;
+export default Scroll;
