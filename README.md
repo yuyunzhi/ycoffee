@@ -5,9 +5,11 @@
 # 项目介绍
 
 - 该项目使用了 storybook 搭建官网
-- 技术栈：React Hooks + TypeScript
-- 工程搭建使用了：pre-commit、git-cz、prettier
-- CI、CD：Github Page + Travis 自动化部署
+- 技术栈：React Hooks + TypeScript + Scss
+- 工程搭建使用了：pre-commit、git-cz、prettier、commitlint
+- 对组件样式定义基础颜色、尺寸，并提取变量统一文件管理
+- 对 Icon 样式图标采用了@fortawesome/react-fontawesome 库
+- CI、CD:Github Page + Travis 自动化提交部署
 
 # storybook install
 
