@@ -11,9 +11,9 @@ interface IScroll extends HTMLAttributes<HTMLDivElement> {
 const Scroll: FC<IScroll> = (props) => {
   const { children, ...rest } = props;
 
-  const [barHeight, setBarHeight] = useState(0);
-  const [barVisible, setBarVisible] = useState(false);
-  const [barTop, _setBarTop] = useState(0);
+  const [barHeight, setBarHeight] = useState<number>(0);
+  const [barVisible, setBarVisible] = useState<boolean>(false);
+  const [barTop, _setBarTop] = useState<number>(0);
 
   const setBarTop = (number: number) => {
     if (number < 0) {
@@ -72,6 +72,7 @@ const Scroll: FC<IScroll> = (props) => {
       setBarTop(newBarTop);
       const scrollHeight = containerRef.current!.scrollHeight;
       const viewHeight = containerRef.current!.getBoundingClientRect().height;
+      // 同步更新 内容区域，滚动
       containerRef.current!.scrollTop = (newBarTop * scrollHeight) / viewHeight;
     }
   };
