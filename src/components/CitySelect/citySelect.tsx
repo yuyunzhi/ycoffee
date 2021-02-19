@@ -5,7 +5,6 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import "./_style.scss";
 import pinyin from "tiny-pinyin";
 import CityPane from "./cityPane";
 
