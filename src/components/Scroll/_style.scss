@@ -21,7 +21,7 @@
   }
   &-bar {
     height: 30px;
-    background: rgba(128, 128, 128, 0.8);
+    background: $scroll-bar-bg;
     position: absolute;
     top: 0;
     left: 2px;
