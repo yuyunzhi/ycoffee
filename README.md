@@ -5,13 +5,12 @@
 # 项目介绍
 
 - 该项目使用了 storybook 搭建官网
+- 工程搭建使用了:pre-commit、git-cz、prettier、commitlint
 - 技术栈：React Hooks + TypeScript + Scss
 - React 内置 Hooks 使用:useState、useEffect、useContext、useRef、useMemo、useCallback、useReducer
 - 自定义 Hooks 封装:useClickOutside、useCurrentLocation、useDebounce
-- 工程搭建使用了:pre-commit、git-cz、prettier、commitlint
-- 对组件样式定义基础颜色、尺寸，并提取变量统一文件管理
-- 对 Icon 样式图标采用了@fortawesome/react-fontawesome 库
-- CI、CD:Github Page + Travis 自动化提交部署
+- 对组件样式定义基础颜色、尺寸，并提取变量统一文件管理,对 Icon 样式图标采用了@fortawesome/react-fontawesome 库
+- CI、CD:Github Page + Travis 自动化提交发布及部署
 - npm publish 发布、及 npm link 本地调试
 
 # storybook install
@@ -33,3 +32,4 @@ npm run storybook
 - 动画：react-transition-group
 - 图标：@fortawesome/react-fontawesome
 - 对 className 操作：classnames
+- 汉字转拼音:tiny-pinyin
