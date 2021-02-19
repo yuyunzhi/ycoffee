@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./components/Button/index";
-import CitySelectExample from "./components/citySelect/citySelect.example";
+import CitySelectExample from "./components/CitySelect/citySelect.example";
 
 function App() {
   return (
