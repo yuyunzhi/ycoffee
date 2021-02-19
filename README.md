@@ -13,6 +13,12 @@
 - CI、CD:Github Page + Travis 自动化提交发布及部署
 - npm publish 发布、及 npm link 本地调试
 
+# 组件介绍
+
+本项目包含 16 个组件：Icon、Button、Input、Layout、Dialog、
+Menu、Progress、AutoComplete、CitySelect、Scroll、Upload、
+Tree、Form、Breadcrumb、Pager、Collapse
+
 # storybook install
 
 安装
