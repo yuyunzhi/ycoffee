@@ -190,6 +190,28 @@ $box-shadow: 0 .5rem 1rem rgba($black, .15) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset: inset 0 1px 2px rgba($black, .075) !default;
 
+@mixin component($name) {
+    .#{$prefix}-#{$name} {
+        @content;
+    }
+}
+
+@function component($name, $modifier:null) {
+    @if $modifier == null {
+        @return ".#{$prefix}-#{$name}"
+    } @else {
+        @return ".#{$prefix}-#{$name}-#{$modifier}"
+    }
+}
+@function componentWithoutDot($name, $modifier:null) {
+    @if $modifier == null {
+        @return "#{$prefix}-#{$name}"
+    } @else {
+        @return "#{$prefix}-#{$name}-#{$modifier}"
+    }
+}
+
+
 // 按钮
 // 按钮基本属性
 $btn-font-weight: 400;
@@ -323,24 +345,17 @@ $dialog-font-size:$font-size-base !default;
 $dialog-line-height:$line-height-base !default;
 $dialog-border-color:$gray-200 !default;
 
+// citySelect
 
-@mixin component($name) {
-    .#{$prefix}-#{$name} {
-        @content;
-    }
-}
-
-@function component($name, $modifier:null) {
-    @if $modifier == null {
-        @return ".#{$prefix}-#{$name}"
-    } @else {
-        @return ".#{$prefix}-#{$name}-#{$modifier}"
-    }
-}
-@function componentWithoutDot($name, $modifier:null) {
-    @if $modifier == null {
-        @return "#{$prefix}-#{$name}"
-    } @else {
-        @return "#{$prefix}-#{$name}-#{$modifier}"
-    }
-}
+$citySelect-bg:$white !default;
+$citySelect-header-bg:$yellow !default;
+$citySelect-font-size:$font-size-base !default;
+$citySelect-alphabet-color:$gray-900 !default;
+$citySelect-alphabet-padding: 1.5em !default;
+$citySelect-font-weight: $font-weight-bold !default;
+$citySelect-letter-size: 1.6em !default;
+$citySelect-hover-bg:$gray-100 !default;
+$citySelect-label-color:$gray-700 !default;
+$citySelect-cityName-color:$gray-600 !default;
+$citySelect-city-padding:.8em 2em .8em .7em!default;
+$citySelect-border-radius:.7em !default;

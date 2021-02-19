@@ -10,15 +10,15 @@
         width: 100%;
         height: 100%;
         overflow: auto;
-        background: white;
+        background: $citySelect-bg;
 
         > header {
-            background: rgb(255, 202, 0);
+            background: $citySelect-header-bg;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            font-size: 16px;
+            font-size: $citySelect-font-size;
             line-height: 50px;
             > .icon {
                 position: absolute;
@@ -26,7 +26,7 @@
                 top:-13px;
                 width:25px;
                 height:25px;
-                font-size:36px;
+                font-size: $citySelect-font-size * 2;
             }
         }
     }
@@ -34,22 +34,22 @@
     &-currentCity{
         color: #666;
         display: inline-block;
-        font-size: 14px;
-        padding: 25px 25px 0 25px;
+        font-size: $citySelect-font-size;
+        padding: $citySelect-alphabet-padding $citySelect-alphabet-padding 0 $citySelect-alphabet-padding;
     }
     &-alphabet {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
-        padding: 25px;
+        padding: $citySelect-alphabet-padding;
 
         > h3 {
-            font-size: 16px;
+            font-size: $citySelect-font-size;
             color: #333;
-            font-weight: 500;
+            font-weight: $citySelect-font-weight;
             display: inline-block;
-            line-height: 16px;
+            line-height: $citySelect-font-size;
             min-width: 150px;
             margin-top: 5px;
         }
@@ -60,52 +60,52 @@
     }
 
     &-letter {
-        font-size: 15px;
-        color: #666;
+        font-size: $citySelect-font-size;
+        color: $citySelect-alphabet-color;
         display: inline-block;
         margin: 0 10px;
-        width: 25px;
-        height: 25px;
+        width: $citySelect-letter-size;
+        height: $citySelect-letter-size;
         cursor: pointer;
         box-sizing: border-box;
         text-align: center;
         border-radius: 50%;
-        line-height: 15px;
+        line-height: 16px;
         padding-top:5px;
         &:hover{
-            font-weight: 500;
-            color: #222222;
-            background: #F8F8F8;
+            font-weight: $citySelect-font-weight;
+            color: $citySelect-alphabet-color;
+            background: $citySelect-hover-bg;
         }
 
     }
 
     &-alphabet-city-area{
-        padding: 13px 30px 13px 10px;
-        border-radius: 10px;
+        padding: $citySelect-city-padding;
+        border-radius: $citySelect-border-radius;
     }
     &-city-area {
-        padding: 13px 30px 13px 10px;
-        border-radius: 10px;
+        padding: $citySelect-city-padding;
+        border-radius: $citySelect-border-radius;
         display:flex;
         flex-direction:row;
         align-items:flex-start;
         transition: background-color 300ms;
 
         &:hover{
-            background: #F8F8F8;
+            background: $citySelect-hover-bg;
         }
     }
 
     &-city-label {
-        padding-top: 6px;
+        padding-top: 7px;
         text-align: center;
         min-width: 40px;
         min-height: 40px;
         border-radius: 50%;
         margin-top:5px;
-        color: #222222;
-        background: #FFD000;
+        color: $citySelect-label-color;
+        background: $citySelect-header-bg;
         box-shadow: 0 4px 5px 0 rgba(39, 178, 164, 0.22);
     }
 
@@ -115,13 +115,13 @@
 
     &-city-name {
         margin: 10px 20px;
-        color: #666;
+        color: $citySelect-cityName-color;
         display: inline-block;
         font-size: 14px;
         cursor: pointer;
         &:hover{
-            color: #222222;
-            font-weight: 500;
+            color: $citySelect-alphabet-color;
+            font-weight: $citySelect-font-weight;
         }
     }
 }
