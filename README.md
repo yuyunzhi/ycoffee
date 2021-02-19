@@ -6,6 +6,7 @@
 
 - 该项目使用了 storybook 搭建官网
 - 技术栈：React Hooks + TypeScript + Scss
+- React 内置 Hooks 使用:useState、useEffect、useContext、useRef、useMemo、useCallback、useReducer
 - 自定义 Hooks 封装:useClickOutside、useCurrentLocation、useDebounce
 - 工程搭建使用了:pre-commit、git-cz、prettier、commitlint
 - 对组件样式定义基础颜色、尺寸，并提取变量统一文件管理
