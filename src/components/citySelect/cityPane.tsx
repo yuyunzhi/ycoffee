@@ -2,6 +2,7 @@ import React, { FC, useContext } from "react";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import ReactDOM from "react-dom";
 import { CitySelectContext } from "./citySelect";
+import Icon from "../Icon";
 
 interface ICityPane {
   onClose: () => void;
@@ -28,7 +29,12 @@ const CityPane: React.FC<ICityPane> = (props) => {
     <div className="yc-citySelect-dialog">
       <header>
         <span className="icon" onClick={onClose}>
-          &lt;
+          <Icon
+            icon="angle-left"
+            size="sm"
+            theme="dark"
+            className="yc-dialog-close-icon"
+          />
         </span>
         <span>选择城市</span>
       </header>
