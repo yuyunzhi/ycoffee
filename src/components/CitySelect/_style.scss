@@ -24,22 +24,10 @@
                 position: absolute;
                 left: 20px;
                 top:-13px;
-                width:30px;
-                height:30px;
+                width:25px;
+                height:25px;
                 font-size:36px;
             }
-        }
-    }
-
-    &-index {
-        display: flex;
-        flex-wrap: wrap;
-        border: 1px solid rgb(221, 216, 206);
-
-        > li {
-            width: 20%;
-            text-align: center;
-            padding: 4px 0;
         }
     }
 
@@ -47,14 +35,14 @@
         color: #666;
         display: inline-block;
         font-size: 14px;
-        margin-top:20px;
+        padding: 25px 25px 0 25px;
     }
     &-alphabet {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
-        padding: 30px 0;
+        padding: 25px;
 
         > h3 {
             font-size: 16px;

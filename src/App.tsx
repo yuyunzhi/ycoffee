@@ -1,12 +1,20 @@
 import React from "react";
 import Button from "./components/Button/index";
-import CitySelectExample from "./components/CitySelect/citySelect.example";
+import CitySelect from "./components/CitySelect";
+import cityList from "./utils/cityList";
 
 function App() {
   return (
     <div className="App">
       <Button>按钮</Button>
-      <CitySelectExample />
+      <CitySelect
+        dataSource={cityList}
+        onChange={(cityName) => {
+          console.log(cityName);
+        }}
+      >
+        <Button> 选择城市 </Button>
+      </CitySelect>
     </div>
   );
 }

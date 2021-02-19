@@ -1,6 +1,7 @@
 import React, { FC, useContext } from "react";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import ReactDOM from "react-dom";
+// @ts-ignore
 import { CitySelectContext } from "./citySelect";
 import Icon from "../Icon";
 

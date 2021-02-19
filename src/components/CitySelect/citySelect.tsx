@@ -28,7 +28,7 @@ export const CitySelectContext = React.createContext<Context>({
 
 const CitySelect: React.FC<Props> = (props) => {
   const { dataSource, onChange, children } = props;
-  const [dialogVisible, setDialogVisible] = useState(true);
+  const [dialogVisible, setDialogVisible] = useState(false);
   const map: Context["map"] = {};
 
   useEffect(() => {
