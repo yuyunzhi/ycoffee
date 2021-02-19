@@ -1,9 +1,12 @@
 import React from "react";
 import Button from "./components/Button/index";
+import CitySelectExample from "./components/citySelect/citySelect.example";
+
 function App() {
   return (
     <div className="App">
       <Button>按钮</Button>
+      <CitySelectExample />
     </div>
   );
 }

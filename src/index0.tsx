@@ -13,8 +13,10 @@ export { default as Upload } from "./components/Upload";
 export { default as Dialog } from "./components/Dialog";
 export { confirm, alert, modal } from "./components/Dialog";
 
-export { default as Layout } from "./components/Layout/layout";
-export { default as Header } from "./components/Layout/header";
-export { default as Footer } from "./components/Layout/footer";
-export { default as Content } from "./components/Layout/content";
-export { default as Aside } from "./components/Layout/aside";
+export { default as Layout } from "./components/Layout";
+export { default as Header } from "./components/Layout";
+export { default as Footer } from "./components/Layout";
+export { default as Content } from "./components/Layout";
+export { default as Aside } from "./components/Layout";
+
+export { default as citySelect } from "./components/citySelect";

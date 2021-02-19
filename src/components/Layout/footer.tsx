@@ -1,10 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
-import Header from "./header";
 
 interface Props extends React.HTMLAttributes<HTMLElement> {}
 
-const Footer: React.FunctionComponent<Props> = (props) => {
+const Footer: FC<Props> = (props) => {
   const { className, ...rest } = props;
   const footerClassName = classNames("yc-layout-footer", className);
 

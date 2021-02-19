@@ -1,10 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
-import Content from "./content";
 
 interface Props extends React.HTMLAttributes<HTMLElement> {}
 
-const Aside: React.FunctionComponent<Props> = (props) => {
+const Aside: FC<Props> = (props) => {
   const { className, ...rest } = props;
   const asideClassName = classNames("yc-layout-aside", className);
 
