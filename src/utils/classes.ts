@@ -38,15 +38,17 @@ function createScopedClasses(
   componentName: string
 ): (...args: ClassValue[]) => string {
   return (...args) => {
-    // @ts-ignore
-    return classArray
-      .apply(null, args.length === 0 ? [""] : args)
-      .map((c: string) => {
-        return [prefix, lowerFirstLetter(componentName), c]
-          .filter((v) => v)
-          .join("-");
-      })
-      .join(" ");
+    return (
+      classArray
+        // @ts-ignore
+        .apply(null, args.length === 0 ? [""] : args)
+        .map((c: string) => {
+          return [prefix, lowerFirstLetter(componentName), c]
+            .filter((v) => v)
+            .join("-");
+        })
+        .join(" ")
+    );
   };
 }
 

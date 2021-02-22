@@ -1,37 +1,35 @@
-import React, { ChangeEventHandler, useRef } from "react";
-import { scopedClassMaker } from "../../utils/classes";
-import useUpdate from "../../hooks/useUpdate";
+import React, { ChangeEventHandler, useRef, useCallback } from "react";
+import { SourceDataItem, ITreeItemProps } from "./ITreeProps";
+import classNames from "classnames";
+import useAnimation from "../../hooks/useAnimation";
 import useToggle from "../../hooks/useToggle";
-
-interface Props {
-  item: SourceDataItem;
-  level: number;
-  treeProps: TreeProps;
-  onItemChange: (values: string[]) => void;
-}
+import useDebounce from "../../hooks/useDebounce";
 
 interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> {}
 
-const scopedClass = scopedClassMaker("fui-tree");
-const sc = scopedClass;
-
-const TreeItem: React.FC<Props> = (props) => {
+const TreeItem: React.FC<ITreeItemProps> = (props) => {
   const { item, level, treeProps } = props;
+  const { value: expanded, expand, collapse } = useToggle(true);
 
-  const classes = {
-    ["level-" + level]: true,
-    item: true,
-  };
-  const checked = treeProps.multiple
+  const treeItemClassName = classNames({
+    [`yc-tree-level-${level}`]: true,
+    "yc-tree-item": true,
+  });
+
+  const treeItemChildrenClassName = classNames({
+    "yc-tree-children": true,
+    "yc-tree-collapsed": !expanded,
+  });
+
+  const isCheckedBox = treeProps.multiple
     ? treeProps.selected.indexOf(item.value) >= 0
     : treeProps.selected === item.value;
-
-  const { value: expanded, expand, collapse } = useToggle(true);
 
   const divRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useUpdate(expanded, () => {
+  const doAnimation = useCallback(() => {
+    console.log(111);
     if (!divRef.current) {
       return;
     }
@@ -64,12 +62,14 @@ const TreeItem: React.FC<Props> = (props) => {
           return;
         }
         divRef.current.style.height = "";
-        divRef.current.classList.add("fui-tree-children-gone");
+        divRef.current.classList.add("yc-tree-children-gone");
         divRef.current.removeEventListener("transitionend", afterCollapse);
       };
       divRef.current.addEventListener("transitionend", afterCollapse);
     }
-  });
+  }, [expanded]);
+
+  useAnimation(expanded, doAnimation);
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const childrenValues = collectChildrenValues(item);
@@ -110,13 +110,13 @@ const TreeItem: React.FC<Props> = (props) => {
   };
 
   return (
-    <div key={item.value} className={sc(classes)}>
-      <div className={sc("text")}>
+    <div key={item.value} className={treeItemClassName}>
+      <div className="yc-tree-text">
         <input
           ref={inputRef}
           type="checkbox"
           onChange={onChange}
-          checked={checked}
+          checked={isCheckedBox}
         />
 
         {item.text}
@@ -131,10 +131,7 @@ const TreeItem: React.FC<Props> = (props) => {
         )}
       </div>
 
-      <div
-        ref={divRef}
-        className={sc({ children: true, collapsed: !expanded })}
-      >
+      <div ref={divRef} className={treeItemChildrenClassName}>
         {item.children?.map((sub) => (
           <TreeItem
             key={sub.value}

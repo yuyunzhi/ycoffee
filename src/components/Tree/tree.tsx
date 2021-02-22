@@ -1,8 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import "./tree.scss";
 import TreeItem from "./tree-item";
+import { ITreeProps } from "./ITreeProps";
 
-const Tree: React.FC<TreeProps> = (props) => {
+const Tree: FC<ITreeProps> = (props) => {
   const onItemChange = (values: string[] | string) => {
     console.log("onItemChange", values);
     if (props.multiple) {

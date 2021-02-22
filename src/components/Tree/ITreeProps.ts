@@ -1,10 +1,10 @@
-interface SourceDataItem {
+export interface SourceDataItem {
   text: string;
   value: string;
   children?: SourceDataItem[];
 }
 
-type TreeProps = {
+export type ITreeProps = {
   sourceData: SourceDataItem[];
 } & (
   | {
@@ -18,3 +18,10 @@ type TreeProps = {
       onChange: (values: string) => void;
     }
 );
+
+export interface ITreeItemProps {
+  item: SourceDataItem;
+  level: number;
+  treeProps: ITreeProps;
+  onItemChange: (values: string[]) => void;
+}

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const useUpdate = (dep: boolean, fn: () => void) => {
+const useAnimation = (dep: boolean, fn: () => void) => {
   const isFirst = useRef(true);
   useEffect(() => {
     if (isFirst.current) {
@@ -8,7 +8,7 @@ const useUpdate = (dep: boolean, fn: () => void) => {
       return;
     }
     fn();
-  }, [dep]);
+  }, [dep, fn]);
 };
 
-export default useUpdate;
+export default useAnimation;
