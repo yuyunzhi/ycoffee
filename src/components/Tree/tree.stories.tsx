@@ -40,7 +40,7 @@ const defaultTree = () => {
 
   return (
     <div className="story-container">
-      <div className="story-header">CitySelect 城市选择器</div>
+      <div className="story-header">Tree 树选择器</div>
       <div className="story-demo-box">
         <div className="story-demo-main">
           <div className="story-content">
