@@ -1,43 +1,86 @@
 .yc-tree {
-  &-item {
-      line-height: 1.5;
-  }
-  &-level-1 {
-    .yc-tree-text {
-      padding-left: 0;
+    &-item {
+        line-height: 1.6;
     }
-  }
-  &-level-2 {
-    .yc-tree-text {
-      padding-left: 1em;
+
+    &-level-1 {
+        .yc-tree-text {
+            padding-left: 0;
+        }
     }
-  }
-  &-level-3 {
-    .yc-tree-text {
-      padding-left: 2em;
+
+    &-level-2 {
+        .yc-tree-text {
+            padding-left: 1em;
+        }
     }
-  }
-  &-level-4 {
-    .yc-tree-text {
-      padding-left: 3em;
+
+    &-level-3 {
+        .yc-tree-text {
+            padding-left: 2em;
+        }
     }
-  }
-  &-level-5 {
-    .yc-tree-text {
-      padding-left: 3em;
+
+    &-level-4 {
+        .yc-tree-text {
+            padding-left: 3em;
+        }
     }
-  }
-  &-text {
-    display: block;
-    &:hover {
-      background: yellow;
+
+    &-level-5 {
+        .yc-tree-text {
+            padding-left: 3em;
+        }
     }
-  }
-  &-children {
-    overflow: hidden;
-    transition: height 200ms;
-    &-gone {
-      height: 0;
+
+    &-text {
+        display: block;
+
+        &:hover {
+            background: yellow;
+        }
     }
-  }
+
+    @keyframes rotate1 {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(-90deg);
+        }
+    }
+
+    @keyframes rotate2 {
+        from {
+            transform: rotate(-90deg);
+        }
+        to {
+            transform: rotate(0deg);
+
+        }
+    }
+
+
+    &-init-down{
+        width: 0.7em;
+        height: 0.7em;
+        &.right{
+            transform: rotate(-90deg);
+        }
+    }
+    &-down {
+        width: 0.7em;
+        height: 0.7em;
+        animation: rotate2 linear 100ms forwards;
+
+        &.expanded {
+            animation: rotate1 linear 100ms forwards;
+        }
+    }
+
+    &-right {
+        width: 1.3em;
+        height: 1.3em;
+    }
 }
+

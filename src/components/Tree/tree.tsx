@@ -27,5 +27,8 @@ const Tree: FC<ITreeProps> = (props) => {
     </div>
   );
 };
-
+Tree.defaultProps = {
+  defaultExpandAll: false,
+  checkable: true,
+};
 export default Tree;

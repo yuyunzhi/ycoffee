@@ -1,83 +1,38 @@
-import React, {
-  ChangeEventHandler,
-  useRef,
-  useCallback,
-  useEffect,
-} from "react";
-import { SourceDataItem, ITreeItemProps } from "./ITreeProps";
+import React, { ChangeEventHandler, useRef, useState } from "react";
+import { SourceDataItem, ITreeItemProps, ITreeProps } from "./ITreeProps";
 import classNames from "classnames";
-import useAnimation from "../../hooks/useAnimation";
 import useToggle from "../../hooks/useToggle";
-import Check from "../Check/check";
+import Transition from "../Transition";
+import down from "../../assets/down.png";
 
 interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> {}
 
 const TreeItem: React.FC<ITreeItemProps> = (props) => {
   const { item, level, treeProps } = props;
-  const { value: expanded, expand, collapse } = useToggle(true);
+  const { checkable, defaultExpandAll } = treeProps as ITreeProps;
+
+  const { value: expanded, expand, collapse } = useToggle(
+    defaultExpandAll ? defaultExpandAll : false
+  );
+  const [displayInitIcon, setDisplayInitIcon] = useState<boolean>(true);
 
   const treeItemClassName = classNames({
     [`yc-tree-level-${level}`]: true,
     "yc-tree-item": true,
   });
 
-  const treeItemChildrenClassName = classNames({
-    "yc-tree-children": true,
-    "yc-tree-collapsed": !expanded,
+  const toggleClassName = classNames("yc-tree-down", { expanded });
+
+  const toggleInitialClassName = classNames("yc-tree-init-down", {
+    right: treeProps.defaultExpandAll,
+    down: !treeProps.defaultExpandAll,
   });
 
   const isCheckedBox = treeProps.multiple
     ? treeProps.selected.indexOf(item.value) >= 0
     : treeProps.selected === item.value;
 
-  const divRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    console.log("inputRef", inputRef);
-  }, []);
-  const doAnimation = useCallback(() => {
-    console.log(111);
-    if (!divRef.current) {
-      return;
-    }
-    if (expanded) {
-      divRef.current.style.position = "absolute";
-      divRef.current.style.opacity = "0";
-      divRef.current.style.height = "auto";
-      const { height } = divRef.current.getBoundingClientRect();
-      divRef.current.style.position = "";
-      divRef.current.style.opacity = "";
-      divRef.current.style.height = "0px";
-      divRef.current.getBoundingClientRect();
-      divRef.current.style.height = height + "px";
-      const afterExpand = () => {
-        if (!divRef.current) {
-          return;
-        }
-        divRef.current.style.height = "";
-        divRef.current.classList.add("fui-tree-children-present");
-        divRef.current.removeEventListener("transitionend", afterExpand);
-      };
-      divRef.current.addEventListener("transitionend", afterExpand);
-    } else {
-      const { height } = divRef.current.getBoundingClientRect();
-      divRef.current.style.height = height + "px";
-      divRef.current.getBoundingClientRect();
-      divRef.current.style.height = "0px";
-      const afterCollapse = () => {
-        if (!divRef.current) {
-          return;
-        }
-        divRef.current.style.height = "";
-        divRef.current.classList.add("yc-tree-children-gone");
-        divRef.current.removeEventListener("transitionend", afterCollapse);
-      };
-      divRef.current.addEventListener("transitionend", afterCollapse);
-    }
-  }, [expanded]);
-
-  useAnimation(expanded, doAnimation);
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const childrenValues = collectChildrenValues(item);
@@ -106,7 +61,9 @@ const TreeItem: React.FC<ITreeItemProps> = (props) => {
   };
 
   const onItemChange = (values: string[]) => {
+    console.log("values", values);
     const childrenValues = collectChildrenValues(item);
+    console.log("childrenValues", childrenValues);
     const common = intersect(values, childrenValues);
     if (common.length !== 0) {
       props.onItemChange(Array.from(new Set(values.concat(item.value))));
@@ -117,29 +74,47 @@ const TreeItem: React.FC<ITreeItemProps> = (props) => {
     }
   };
 
+  const changeToggle = () => {
+    setDisplayInitIcon(false);
+    expanded ? collapse() : expand();
+  };
+
   return (
     <div key={item.value} className={treeItemClassName}>
       <div className="yc-tree-text">
-        <Check
-          ref={inputRef}
-          type="checkbox"
-          onChange={onChange}
-          checked={isCheckedBox}
-        >
-          {item.text}
-          {item.children && (
-            <span onSelect={(e) => e.preventDefault()}>
-              {expanded ? (
-                <span onClick={collapse}>-</span>
-              ) : (
-                <span onClick={expand}>+</span>
-              )}
-            </span>
-          )}
-        </Check>
+        {/*初始化第一次假的，点击后就影藏*/}
+        {item.children && displayInitIcon && (
+          <img
+            onSelect={(e) => e.preventDefault()}
+            className={toggleInitialClassName}
+            src={down}
+            alt=""
+            onClick={changeToggle}
+          />
+        )}
+
+        {item.children && !displayInitIcon && (
+          <img
+            onSelect={(e) => e.preventDefault()}
+            className={toggleClassName}
+            src={down}
+            alt=""
+            onClick={changeToggle}
+          />
+        )}
+
+        {checkable && (
+          <input
+            ref={inputRef}
+            type="checkbox"
+            onChange={onChange}
+            checked={isCheckedBox}
+          />
+        )}
+        <span>{item.text}</span>
       </div>
 
-      <div ref={divRef} className={treeItemChildrenClassName}>
+      <Transition in={expanded} timeout={150} wrapper animation="zoom-in-top">
         {item.children?.map((sub) => (
           <TreeItem
             key={sub.value}
@@ -149,7 +124,7 @@ const TreeItem: React.FC<ITreeItemProps> = (props) => {
             treeProps={treeProps}
           />
         ))}
-      </div>
+      </Transition>
     </div>
   );
 };
@@ -171,6 +146,7 @@ function flatten(array?: RecursiveArray<string>): string[] {
       result.concat(typeof current === "string" ? current : flatten(current)),
     []
   );
+
   // const result = [];
   // for (let i = 0; i < array.length; i++) {
   //   if (array[i] instanceof Array) {

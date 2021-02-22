@@ -6,6 +6,8 @@ export interface SourceDataItem {
 
 export type ITreeProps = {
   sourceData: SourceDataItem[];
+  defaultExpandAll?: boolean;
+  checkable?: boolean;
 } & (
   | {
       multiple: true;
