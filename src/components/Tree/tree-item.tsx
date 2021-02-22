@@ -1,9 +1,14 @@
-import React, { ChangeEventHandler, useRef, useCallback } from "react";
+import React, {
+  ChangeEventHandler,
+  useRef,
+  useCallback,
+  useEffect,
+} from "react";
 import { SourceDataItem, ITreeItemProps } from "./ITreeProps";
 import classNames from "classnames";
 import useAnimation from "../../hooks/useAnimation";
 import useToggle from "../../hooks/useToggle";
-import useDebounce from "../../hooks/useDebounce";
+import Check from "../Check/check";
 
 interface RecursiveArray<T> extends Array<T | RecursiveArray<T>> {}
 
@@ -28,6 +33,9 @@ const TreeItem: React.FC<ITreeItemProps> = (props) => {
   const divRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    console.log("inputRef", inputRef);
+  }, []);
   const doAnimation = useCallback(() => {
     console.log(111);
     if (!divRef.current) {
@@ -112,23 +120,23 @@ const TreeItem: React.FC<ITreeItemProps> = (props) => {
   return (
     <div key={item.value} className={treeItemClassName}>
       <div className="yc-tree-text">
-        <input
+        <Check
           ref={inputRef}
           type="checkbox"
           onChange={onChange}
           checked={isCheckedBox}
-        />
-
-        {item.text}
-        {item.children && (
-          <span onSelect={(e) => e.preventDefault()}>
-            {expanded ? (
-              <span onClick={collapse}>-</span>
-            ) : (
-              <span onClick={expand}>+</span>
-            )}
-          </span>
-        )}
+        >
+          {item.text}
+          {item.children && (
+            <span onSelect={(e) => e.preventDefault()}>
+              {expanded ? (
+                <span onClick={collapse}>-</span>
+              ) : (
+                <span onClick={expand}>+</span>
+              )}
+            </span>
+          )}
+        </Check>
       </div>
 
       <div ref={divRef} className={treeItemChildrenClassName}>

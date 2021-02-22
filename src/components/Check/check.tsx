@@ -1,18 +1,21 @@
-import React, { FC } from "react";
+import React, { FC, forwardRef } from "react";
 import "./check.scss";
 import { InputHTMLAttributes } from "react";
 import classes, { createScopedClasses } from "../../utils/classes";
 const componentName = "Check";
 const sc = createScopedClasses(componentName);
 
-export interface IProps extends InputHTMLAttributes<HTMLInputElement> {}
+export interface IProps extends InputHTMLAttributes<HTMLInputElement> {
+  ref: any;
+}
 
-const Check: FC<IProps> = (props) => {
+const Check: FC<IProps> = forwardRef((props, ref) => {
   const { className, checked, children, ...restProps } = props;
   return (
     <label className={sc("wrapper")}>
       <span className={classes(sc("", { checked }), className)}>
         <input
+          ref={ref}
           {...restProps}
           className={sc("input")}
           type="checkbox"
@@ -22,7 +25,7 @@ const Check: FC<IProps> = (props) => {
       <span className={sc("label")}>{children}</span>
     </label>
   );
-};
+});
 Check.displayName = componentName;
 Check.defaultProps = {};
 Check.propTypes = {};
