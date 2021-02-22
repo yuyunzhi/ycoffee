@@ -26,6 +26,7 @@ const TreeItem: React.FC<ITreeItemProps> = (props) => {
   const toggleInitialClassName = classNames("yc-tree-init-down", {
     right: treeProps.defaultExpandAll,
     down: !treeProps.defaultExpandAll,
+    none: !item.children,
   });
 
   const isCheckedBox = treeProps.multiple
@@ -93,6 +94,16 @@ const TreeItem: React.FC<ITreeItemProps> = (props) => {
           />
         )}
 
+        {/*占位符*/}
+        {!item.children && (
+          <img
+            onSelect={(e) => e.preventDefault()}
+            className={toggleInitialClassName}
+            src={down}
+            alt=""
+          />
+        )}
+
         {item.children && !displayInitIcon && (
           <img
             onSelect={(e) => e.preventDefault()}
@@ -107,11 +118,12 @@ const TreeItem: React.FC<ITreeItemProps> = (props) => {
           <input
             ref={inputRef}
             type="checkbox"
+            className="yc-tree-checkbox"
             onChange={onChange}
             checked={isCheckedBox}
           />
         )}
-        <span>{item.text}</span>
+        <span className="yc-tree-checkbox-text">{item.text}</span>
       </div>
 
       <Transition in={expanded} timeout={150} wrapper animation="zoom-in-top">

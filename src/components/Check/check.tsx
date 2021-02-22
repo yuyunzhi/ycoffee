@@ -1,12 +1,11 @@
-import React, { FC, forwardRef } from "react";
+import React, { FC, forwardRef, InputHTMLAttributes } from "react";
 import "./check.scss";
-import { InputHTMLAttributes } from "react";
 import classes, { createScopedClasses } from "../../utils/classes";
 const componentName = "Check";
 const sc = createScopedClasses(componentName);
 
 export interface IProps extends InputHTMLAttributes<HTMLInputElement> {
-  ref: any;
+  ref?: any;
 }
 
 const Check: FC<IProps> = forwardRef((props, ref) => {

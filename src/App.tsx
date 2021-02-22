@@ -1,7 +1,7 @@
 import React, { ReactChild, useState } from "react";
 import Button from "./components/Button/index";
 import TreeExample from "./components/Tree/tree.example";
-// import Check from './components/Check/check'
+import Check from "./components/Check/check";
 // import Breadcrumb, {BI, Renderer} from './components/Breadcrumb/breadcrumb'
 // import Pager from './components/Pager/pager'
 // import Radio from './components/Radio/radio'
@@ -13,11 +13,17 @@ function App() {
     setCurrentPager(a);
   };
 
+  const [isChecked, setIsChecked] = useState<boolean>(true);
+  console.log(isChecked);
   return (
     <div className="App">
       <Button>按钮</Button>
       <TreeExample />
-      {/*<Check checked> 123123</Check>*/}
+      <Check checked={isChecked} onClick={() => setIsChecked(!isChecked)}>
+        {" "}
+        123123
+      </Check>
+
       {/*<Radio checked>哈哈哈哈</Radio>*/}
       {/*<Breadcrumb routes={[{text: '1', link: 'www.baidu.com'}, {text: '2', link: 'www.baidu.com'}, {*/}
       {/*  text: '3',*/}

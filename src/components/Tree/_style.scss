@@ -1,0 +1,117 @@
+@keyframes rotate1 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes rotate2 {
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0deg);
+
+    }
+}
+
+.yc-tree {
+    &-item {
+        line-height: 1.6;
+    }
+
+    &-level-1 {
+        .yc-tree-text {
+            padding-left: 0;
+        }
+    }
+
+    &-level-2 {
+        .yc-tree-text {
+            padding-left: 1.5em;
+        }
+    }
+
+    &-level-3 {
+        .yc-tree-text {
+            padding-left: 2.5em;
+        }
+    }
+
+    &-level-4 {
+        .yc-tree-text {
+            padding-left: 3.5em;
+        }
+    }
+
+    &-level-5 {
+        .yc-tree-text {
+            padding-left: 4.5em;
+        }
+    }
+
+    &-text {
+        display: flex;
+        flex-direction: row;
+        justify-items: flex-start;
+        align-items: center;
+    }
+
+    &-checkbox-text {
+        z-index: auto;
+        min-height: 24px;
+        margin: 0;
+        padding: 0 4px;
+        color: rgba(0, 0, 0, 0.85);
+        line-height: 24px;
+        background: 0 0;
+        border-radius: 2px;
+
+        font-size: 15px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
+    }
+
+    &-checkbox {
+        top: auto;
+        margin: 0 7px 0 7px;
+    }
+
+    &-init-down {
+        width: 0.7em;
+        height: 0.7em;
+        text-align: center;
+        cursor: pointer;
+        display: block;
+        &.none{
+            opacity: 0;
+        }
+
+        &.right {
+            transform: rotate(-90deg);
+        }
+    }
+
+    &-down {
+        width: 0.7em;
+        height: 0.7em;
+        animation: rotate2 linear 100ms forwards;
+        text-align: center;
+        cursor: pointer;
+
+        &.expanded {
+            animation: rotate1 linear 100ms forwards;
+        }
+    }
+
+    &-right {
+        width: 0.7em;
+        height: 0.7em;
+    }
+}
+

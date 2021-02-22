@@ -2,6 +2,7 @@ import React, { CSSProperties } from "react";
 import { createScopedClasses } from "../../utils/classes";
 import { ReactChild } from "react";
 import "./breadcrumb.scss";
+import classNames from "classnames";
 
 const componentName = "Breadcrumb";
 const sc = createScopedClasses(componentName);

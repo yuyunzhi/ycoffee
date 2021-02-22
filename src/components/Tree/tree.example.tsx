@@ -37,6 +37,7 @@ const TreeExample: React.FC = (props) => {
       Tree selectedValues: {selectedValues.join(" , ")}
       <div style={{ width: 200 }}>
         <Tree
+          defaultExpandAll={true}
           sourceData={array}
           selected={selectedValues}
           onChange={(value: string[]) => setSelectedValues(value)}
