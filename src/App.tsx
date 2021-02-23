@@ -1,7 +1,7 @@
 import React, { ReactChild, useState } from "react";
 import Button from "./components/Button/index";
 import TreeExample from "./components/Tree/tree.example";
-import Check from "./components/Check/check";
+import Check from "./components/Checkbox/checkbox";
 // import Breadcrumb, {BI, Renderer} from './components/Breadcrumb/breadcrumb'
 // import Pager from './components/Pager/pager'
 // import Radio from './components/Radio/radio'
@@ -17,8 +17,8 @@ function App() {
   console.log(isChecked);
   return (
     <div className="App">
-      <Button>按钮</Button>
-      <TreeExample />
+      {/*<Button>按钮</Button>*/}
+      {/*<TreeExample />*/}
       <Check checked={isChecked} onClick={() => setIsChecked(!isChecked)}>
         {" "}
         123123

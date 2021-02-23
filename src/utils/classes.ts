@@ -1,6 +1,6 @@
 import { lowerFirstLetter } from "./namer";
 
-const prefix = "gu";
+const prefix = "yc";
 
 type ClassValue =
   | string

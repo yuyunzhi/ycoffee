@@ -22,3 +22,4 @@ export { default as Aside } from "./components/Layout";
 export { default as CitySelect } from "./components/CitySelect";
 export { default as Scroll } from "./components/Scroll";
 export { default as Tree } from "./components/Tree";
+export { default as Checkbox } from "./components/Checkbox";
