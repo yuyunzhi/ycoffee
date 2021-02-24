@@ -15,7 +15,7 @@ const defaultWelcome = () => (
 
           <p>
             {" "}
-            ycoffee 是 一个React组件库，技术栈使用了React Hooks + TypeScript
+            ycoffee 是一个React组件库，技术栈使用了React Hooks + TypeScript
           </p>
           <h4>项目介绍</h4>
           <p>
