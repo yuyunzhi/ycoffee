@@ -23,3 +23,4 @@ export { default as CitySelect } from "./components/CitySelect";
 export { default as Scroll } from "./components/Scroll";
 export { default as Tree } from "./components/Tree";
 export { default as Checkbox } from "./components/Checkbox";
+export { default as Breadcrumb } from "./components/Breadcrumb";

@@ -1,10 +1,12 @@
-@import "helper";
 
-#{component(breadcrumb)} {
+
+$font-size: 14px;
+
+.yc-breadcrumb{
   font-size: $font-size;
   margin: 8px 0;
   &-link {
-    color: $blue;
+    color: #0086e6;
   }
   &-item {
 

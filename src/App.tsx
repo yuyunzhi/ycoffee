@@ -1,8 +1,6 @@
-import React, { ReactChild, useState } from "react";
-import Button from "./components/Button/index";
-import TreeExample from "./components/Tree/tree.example";
-import Check from "./components/Checkbox/checkbox";
-// import Breadcrumb, {BI, Renderer} from './components/Breadcrumb/breadcrumb'
+import React, { useState } from "react";
+
+import Breadcrumb, { BI, Renderer } from "./components/Breadcrumb/breadcrumb";
 // import Pager from './components/Pager/pager'
 // import Radio from './components/Radio/radio'
 function App() {
@@ -13,34 +11,20 @@ function App() {
     setCurrentPager(a);
   };
 
-  const [isChecked, setIsChecked] = useState<boolean>(true);
-
-  const [indeterminate, setIndeterminate] = useState<boolean>(true);
-
-  console.log(isChecked);
   return (
     <div className="App">
-      {/*<Button>按钮</Button>*/}
       {/*<TreeExample />*/}
-      <Check checked={isChecked} onClick={() => setIsChecked(!isChecked)}>
-        123123
-      </Check>
 
-      <Check
-        checked={isChecked}
-        indeterminate={indeterminate}
-        onClick={() => {
-          setIndeterminate(false);
-          setIsChecked(!isChecked);
-        }}
-      >
-        123123
-      </Check>
-      {/*<Radio checked>哈哈哈哈</Radio>*/}
-      {/*<Breadcrumb routes={[{text: '1', link: 'www.baidu.com'}, {text: '2', link: 'www.baidu.com'}, {*/}
-      {/*  text: '3',*/}
-      {/*  link: 'www.baidu.com'*/}
-      {/*}]}/>*/}
+      <Breadcrumb
+        routes={[
+          { text: "首页", link: "www.baidu.com" },
+          { text: "第一页", link: "www.baidu.com" },
+          {
+            text: "第二页",
+            link: "www.baidu.com",
+          },
+        ]}
+      />
 
       {/*<Pager current={currentPager} total={90} onChange={onChange}/>*/}
     </div>

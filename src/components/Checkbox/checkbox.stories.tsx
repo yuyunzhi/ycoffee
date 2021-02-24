@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 import "../../styles/index.scss";
 import "../../styles/storybook.scss";
-import Button from "../Button";
-import cityList from "../../utils/cityList";
 import Checkbox from "./checkbox";
 import Check from "./checkbox";
 

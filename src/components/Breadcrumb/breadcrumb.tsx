@@ -1,48 +1,25 @@
-import React, { CSSProperties } from "react";
-import { createScopedClasses } from "../../utils/classes";
-import { ReactChild } from "react";
-import "./breadcrumb.scss";
-import classNames from "classnames";
-
-const componentName = "Breadcrumb";
-const sc = createScopedClasses(componentName);
-
-export interface IBreadcrumbItem {
-  text: string;
-  link: string;
-}
-
-export type BI = IBreadcrumbItem;
-interface IStyledProps {
-  className?: string;
-  style?: CSSProperties;
-}
-
-export type Renderer = (item: BI, index: number, items: BI[]) => ReactChild;
-
-export interface IProps extends IStyledProps {
-  routes?: BI[];
-  separator?: ReactChild;
-  renderer?: Renderer;
-}
+import React, { ReactChild } from "react";
+import { Renderer, IProps } from "./IBreadcrumb";
 
 const renderItem: Renderer = (item, index, array) =>
   index === array.length - 1 ? (
-    <span className={sc("item")} key={item.link}>
+    <span className="yc-breadcrumb-item" key={item.link}>
       {item.text}
     </span>
   ) : (
-    <a className={sc("link")} href={item.link} key={item.link}>
+    <a className="yc-breadcrumb-link" href={item.link} key={item.link}>
       {item.text}
     </a>
   );
-const createSeparator = (key: string | number, separator: ReactChild) => (
-  <span className={sc("separator")} key={key}>
-    {separator}
-  </span>
-);
 
 const Breadcrumb: React.FC<IProps> = (props) => {
+  const { routes, renderer, separator } = props;
+  const createSeparator = (key: string | number, separator: ReactChild) => (
+    <span className="yc-breadcrumb-separator" key={key}>
+      {separator}
+    </span>
+  );
+
   const addSeparator: (
     sum: ReactChild[],
     item: ReactChild,
@@ -50,18 +27,16 @@ const Breadcrumb: React.FC<IProps> = (props) => {
     array: ReactChild[]
   ) => ReactChild[] = (sum, item, index, array) =>
     sum.concat(
-      array[index + 1]
-        ? [item, createSeparator(index, props.separator!)]
-        : [item]
+      array[index + 1] ? [item, createSeparator(index, separator!)] : [item]
     );
-  const content =
-    props.routes &&
-    props.routes
-      .map<ReactChild>(props.renderer!)
-      .reduce<ReactChild[]>(addSeparator, []);
-  return <div className={sc()}>{content}</div>;
+  const content = routes
+    ?.map<ReactChild>(renderer!)
+    .reduce<ReactChild[]>(addSeparator, []);
+
+  return <div className="yc-breadcrumb">{content}</div>;
 };
-Breadcrumb.displayName = componentName;
+
+Breadcrumb.displayName = "Breadcrumb";
 Breadcrumb.defaultProps = {
   separator: "/",
   renderer: renderItem,
