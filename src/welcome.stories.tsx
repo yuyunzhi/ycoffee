@@ -32,11 +32,11 @@ const defaultWelcome = () => (
                 封装:useClickOutside、useCurrentLocation、useDebounce、useImageSize、useToggle
               </li>
               <li>
-                对组件样式定义基础颜色、尺寸，并提取变量统一文件管理,对 Icon
+                对组件样式定义基础颜色、尺寸，提取变量统一文件管理, Icon
                 样式图标采用了@fortawesome/react-fontawesome 库
               </li>
-              <li>CI、CD:Github Page + Travis 自动化提交发布及部署</li>
-              <li>npm publish 发布、及 npm link 本地调试</li>
+              <li>CI、CD:Github Page + Travis 持续集成、部署</li>
+              <li>npm publish 发布</li>
             </ol>
           </p>
           <h4>组件介绍</h4>
