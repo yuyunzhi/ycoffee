@@ -26,7 +26,7 @@ const defaultWelcome = () => (
               </li>
               <li>
                 自定义 Hooks
-                封装:useClickOutside、useCurrentLocation、useDebounce
+                封装:useClickOutside、useCurrentLocation、useDebounce、useImageSize、useToggle
               </li>
               <li>
                 对组件样式定义基础颜色、尺寸，并提取变量统一文件管理,对 Icon
