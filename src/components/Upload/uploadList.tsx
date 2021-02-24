@@ -1,33 +1,35 @@
-import React, { FC } from 'react'
-import { UploadFile } from './upload'
-import Icon from '../Icon/icon'
-import Progress from '../Progress/progress'
+import React, { FC } from "react";
+import { UploadFile } from "./upload";
+import Icon from "../Icon/icon";
+import Progress from "../Progress/progress";
+
 interface UploadListProps {
-  fileList: UploadFile[]
-  onRemove: (_file: UploadFile) => void
+  fileList: UploadFile[];
+  onRemove: (_file: UploadFile) => void;
 }
 
 export const UploadList: FC<UploadListProps> = (props) => {
-  const { fileList, onRemove } = props
+  const { fileList, onRemove } = props;
 
   return (
     <ul className="yc-upload-list">
       {fileList.map((item) => {
+        console.log("item.percent", item.percent);
         return (
           <li className="yc-upload-list-item" key={item.uid}>
             <span className={`file-name file-name-${item.status}`}>
               <Icon icon="file-alt" theme="secondary" />
-              {item.name}
+              {item.name}111
             </span>
 
             <span className="file-status">
-              {(item.status === 'uploading' || item.status === 'ready') && (
+              {(item.status === "uploading" || item.status === "ready") && (
                 <Icon icon="spinner" spin theme="primary" />
               )}
-              {item.status === 'success' && (
+              {item.status === "success" && (
                 <Icon icon="check-circle" theme="success" />
               )}
-              {item.status === 'error' && (
+              {item.status === "error" && (
                 <Icon icon="times-circle" theme="danger" />
               )}
             </span>
@@ -36,18 +38,18 @@ export const UploadList: FC<UploadListProps> = (props) => {
               <Icon
                 icon="times"
                 onClick={() => {
-                  onRemove(item)
+                  onRemove(item);
                 }}
               />
             </span>
-            {item.status === 'uploading' && (
+            {item.status === "uploading" && (
               <Progress percent={item.percent || 0} />
             )}
           </li>
-        )
+        );
       })}
     </ul>
-  )
-}
+  );
+};
 
-export default UploadList
+export default UploadList;
