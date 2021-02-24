@@ -13,17 +13,29 @@ function App() {
     setCurrentPager(a);
   };
 
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<boolean>(true);
+
+  const [indeterminate, setIndeterminate] = useState<boolean>(true);
+
   console.log(isChecked);
   return (
     <div className="App">
       {/*<Button>按钮</Button>*/}
       {/*<TreeExample />*/}
       <Check checked={isChecked} onClick={() => setIsChecked(!isChecked)}>
-        {" "}
         123123
       </Check>
 
+      <Check
+        checked={isChecked}
+        indeterminate={indeterminate}
+        onClick={() => {
+          setIndeterminate(false);
+          setIsChecked(!isChecked);
+        }}
+      >
+        123123
+      </Check>
       {/*<Radio checked>哈哈哈哈</Radio>*/}
       {/*<Breadcrumb routes={[{text: '1', link: 'www.baidu.com'}, {text: '2', link: 'www.baidu.com'}, {*/}
       {/*  text: '3',*/}

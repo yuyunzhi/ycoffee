@@ -1,82 +1,3 @@
-
-
-//@function component($name, $modifier:null) {
-//    @if $modifier == null {
-//        @return ".yc-#{$name}"
-//    } @else {
-//        @return ".yc-#{$name}-#{$modifier}"
-//    }
-//}
-//
-//$colors: (
-//        red: #f1453d,
-//        green: #8cc152,
-//        blue: #0086e6,
-//        black: #424242,
-//        white: #ffffff,
-//        grey: #ababab,
-//);
-//
-//$blue: map_get($colors, blue);
-//
-//#{component(check)} {
-//    $width: 14px;
-//    width: $width;
-//    height: $width;
-//    border: 1px solid lighten(#333, 40%);
-//    position: relative;
-//    display: inline-flex;
-//    justify-content: center;
-//    align-items: center;
-//    vertical-align: middle;
-//    font-size: 14px;
-//
-//    &-input {
-//        position: absolute;
-//        width: 100%;
-//        height: 100%;
-//        z-index: 1;
-//        //opacity: 0;
-//    }
-//
-//    &-checked {
-//        border-color: $blue;
-//        &::before {
-//            //$delta: 6px;
-//            //content: '';
-//            //width: $width - $delta;
-//            //height: $width - $delta;
-//            //background: $blue;
-//            position: absolute;
-//            display: table;
-//            border: 2px solid #fff;
-//            border-top: 0;
-//            border-left: 0;
-//            -webkit-transform: rotate(45deg) scale(1) translate(-50%,-50%);
-//            transform: rotate(45deg) scale(1) translate(-50%,-50%);
-//            opacity: 1;
-//            -webkit-transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
-//            transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
-//            content: " ";
-//        }
-//    }
-//
-//    &-wrapper {
-//        display: inline-flex;
-//        align-items: center;
-//        vertical-align: top;
-//    }
-//
-//    &-wrapper + &-wrapper {
-//        margin-left: 1em;
-//    }
-//
-//    &-label {
-//        margin-left: .2em;
-//    }
-//
-//}
-
 .yc-checkbox-wrapper{
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -90,6 +11,9 @@
     display: inline-block;
     line-height: unset;
     cursor: pointer;
+    .yc-checkbox-label{
+        margin-left:0.5em;
+    }
     .yc-checkbox {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
@@ -108,6 +32,53 @@
         outline: none;
         cursor: pointer;
 
+
+
+        .ant-checkbox-inner:after {
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background-color: #1890ff;
+            border: 0;
+            -webkit-transform: translate(-50%,-50%) scale(1);
+            transform: translate(-50%,-50%) scale(1);
+            opacity: 1;
+            content: " ";
+        }
+        &.yc-checkbox-indeterminate{
+            .yc-checkbox-inner {
+                position: relative;
+
+                top: 0;
+                left: 0;
+                display: block;
+                width: 16px;
+                height: 16px;
+                direction: ltr;
+                background-color: #fff;
+                border-radius: 2px;
+                border-collapse: separate;
+                -webkit-transition: all .3s;
+                transition: all .3s;
+                border-color: #d9d9d9;
+
+                &::after {
+                    top: 50%;
+                    left: 50%;
+                    width: 8px;
+                    height: 8px;
+                    background-color: #1890ff;
+                    border: 0;
+                    -webkit-transform: translate(-50%,-50%) scale(1);
+                    transform: translate(-50%,-50%) scale(1);
+                    opacity: 1;
+                    content: " ";
+                    position: absolute;
+                }
+            }
+
+        }
         // 被点击后的样式
         &.yc-checkbox-checked {
 
@@ -185,6 +156,7 @@
             opacity: 0;
         }
     }
+
 }
 
 
