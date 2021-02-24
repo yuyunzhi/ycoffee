@@ -17,7 +17,7 @@
 
 本项目包含 16 个组件：Icon、Button、Input、Layout、Dialog、
 Menu、Progress、AutoComplete、CitySelect、Scroll、Upload、
-Tree、Form、Breadcrumb、Pager、Collapse
+Tree、Breadcrumb、Pager、Checkbox
 
 # storybook install
 
