@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import Breadcrumb, { BI, Renderer } from "./components/Breadcrumb/breadcrumb";
 // import Pager from './components/Pager/pager'
 // import Radio from './components/Radio/radio'
 function App() {
@@ -14,18 +13,6 @@ function App() {
   return (
     <div className="App">
       {/*<TreeExample />*/}
-
-      <Breadcrumb
-        routes={[
-          { text: "首页", link: "www.baidu.com" },
-          { text: "第一页", link: "www.baidu.com" },
-          {
-            text: "第二页",
-            link: "www.baidu.com",
-          },
-        ]}
-      />
-
       {/*<Pager current={currentPager} total={90} onChange={onChange}/>*/}
     </div>
   );
