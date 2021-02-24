@@ -1,8 +1,8 @@
-# ycoffee 组件库
+## ycoffee 组件库
 
 [![Build Status](https://travis-ci.org/yuyunzhi/ycoffee.svg?branch=master)](https://travis-ci.org/yuyunzhi/ycoffee)
 
-# 项目介绍
+### 项目介绍
 
 - 该项目使用了 storybook 搭建官网
 - 工程搭建使用了:pre-commit、git-cz、prettier、commitlint
@@ -13,7 +13,7 @@
 - CI、CD:Github Page + Travis 自动化提交发布及部署
 - npm publish 发布
 
-# 组件介绍
+### 组件介绍
 
 本项目包含 15 个组件：Icon、Button、Input、Layout、Dialog、
 Menu、Progress、AutoComplete、CitySelect、Scroll、Upload、
