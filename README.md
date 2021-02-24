@@ -11,13 +11,13 @@
 - 自定义 Hooks 封装:useClickOutside、useCurrentLocation、useDebounce
 - 对组件样式定义基础颜色、尺寸，并提取变量统一文件管理,对 Icon 样式图标采用了@fortawesome/react-fontawesome 库
 - CI、CD:Github Page + Travis 自动化提交发布及部署
-- npm publish 发布、及 npm link 本地调试
+- npm publish 发布
 
 # 组件介绍
 
-本项目包含 16 个组件：Icon、Button、Input、Layout、Dialog、
+本项目包含 15 个组件：Icon、Button、Input、Layout、Dialog、
 Menu、Progress、AutoComplete、CitySelect、Scroll、Upload、
-Tree、Breadcrumb、Pager、Checkbox
+Tree、Breadcrumb、Checkbox
 
 # storybook install
 

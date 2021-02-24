@@ -15,8 +15,7 @@ const defaultWelcome = () => (
 
           <p>
             {" "}
-            ycoffee 是 一个好用的React组件库，技术栈使用了React Hooks +
-            TypeScript
+            ycoffee 是 一个React组件库，技术栈使用了React Hooks + TypeScript
           </p>
           <h4>项目介绍</h4>
           <p>
@@ -42,9 +41,9 @@ const defaultWelcome = () => (
           </p>
           <h4>组件介绍</h4>
           <p>
-            本项目包含 16 个组件：Icon、Button、Input、Layout、Dialog、
+            本项目包含 15 个组件：Icon、Button、Input、Layout、Dialog、
             Menu、Progress、AutoComplete、CitySelect、Scroll、Upload、
-            Tree、Breadcrumb、Pager、Checkbox
+            Tree、Breadcrumb、Checkbox
           </p>
           <h4>安装试试</h4>
           <code>npm install ycoffee --save</code>
