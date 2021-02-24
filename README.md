@@ -8,7 +8,7 @@
 - 工程搭建使用了:pre-commit、git-cz、prettier、commitlint
 - 技术栈：React Hooks + TypeScript + Scss
 - React 内置 Hooks 使用:useState、useEffect、useContext、useRef、useMemo、useCallback、useReducer
-- 自定义 Hooks 封装:useClickOutside、useCurrentLocation、useDebounce
+- 自定义 Hooks 封装:useClickOutside、useCurrentLocation、useDebounce、useImageSize、useToggle
 - 对组件样式定义基础颜色、尺寸，并提取变量统一文件管理,对 Icon 样式图标采用了@fortawesome/react-fontawesome 库
 - CI、CD:Github Page + Travis 自动化提交发布及部署
 - npm publish 发布
