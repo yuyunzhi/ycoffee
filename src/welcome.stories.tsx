@@ -10,6 +10,10 @@ const defaultWelcome = () => (
       <div className="story-demo-main">
         <div className="story-content">
           <p>
+            作者:<span>余韵之</span>
+          </p>
+
+          <p>
             {" "}
             ycoffee 是 一个好用的React组件库，技术栈使用了React Hooks +
             TypeScript
