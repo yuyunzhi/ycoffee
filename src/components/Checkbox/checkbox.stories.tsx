@@ -46,7 +46,7 @@ const defaultCheckbox = () => {
                 indeterminate={indeterminate}
                 onClick={() => {
                   setIndeterminate(false);
-                  setChecked1(!checked!);
+                  setChecked1(!checked1);
                 }}
               >
                 Check
