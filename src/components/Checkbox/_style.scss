@@ -1,67 +1,190 @@
 
 
-@function component($name, $modifier:null) {
-    @if $modifier == null {
-        @return ".yc-#{$name}"
-    } @else {
-        @return ".yc-#{$name}-#{$modifier}"
-    }
-}
+//@function component($name, $modifier:null) {
+//    @if $modifier == null {
+//        @return ".yc-#{$name}"
+//    } @else {
+//        @return ".yc-#{$name}-#{$modifier}"
+//    }
+//}
+//
+//$colors: (
+//        red: #f1453d,
+//        green: #8cc152,
+//        blue: #0086e6,
+//        black: #424242,
+//        white: #ffffff,
+//        grey: #ababab,
+//);
+//
+//$blue: map_get($colors, blue);
+//
+//#{component(check)} {
+//    $width: 14px;
+//    width: $width;
+//    height: $width;
+//    border: 1px solid lighten(#333, 40%);
+//    position: relative;
+//    display: inline-flex;
+//    justify-content: center;
+//    align-items: center;
+//    vertical-align: middle;
+//    font-size: 14px;
+//
+//    &-input {
+//        position: absolute;
+//        width: 100%;
+//        height: 100%;
+//        z-index: 1;
+//        //opacity: 0;
+//    }
+//
+//    &-checked {
+//        border-color: $blue;
+//        &::before {
+//            //$delta: 6px;
+//            //content: '';
+//            //width: $width - $delta;
+//            //height: $width - $delta;
+//            //background: $blue;
+//            position: absolute;
+//            display: table;
+//            border: 2px solid #fff;
+//            border-top: 0;
+//            border-left: 0;
+//            -webkit-transform: rotate(45deg) scale(1) translate(-50%,-50%);
+//            transform: rotate(45deg) scale(1) translate(-50%,-50%);
+//            opacity: 1;
+//            -webkit-transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+//            transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+//            content: " ";
+//        }
+//    }
+//
+//    &-wrapper {
+//        display: inline-flex;
+//        align-items: center;
+//        vertical-align: top;
+//    }
+//
+//    &-wrapper + &-wrapper {
+//        margin-left: 1em;
+//    }
+//
+//    &-label {
+//        margin-left: .2em;
+//    }
+//
+//}
 
-$colors: (
-        red: #f1453d,
-        green: #8cc152,
-        blue: #0086e6,
-        black: #424242,
-        white: #ffffff,
-        grey: #ababab,
-);
-
-$blue: map_get($colors, blue);
-
-#{component(check)} {
-    $width: 14px;
-    width: $width;
-    height: $width;
-    border: 1px solid lighten(#333, 40%);
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
+.yc-checkbox-wrapper{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,.85);
     font-size: 14px;
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: "tnum";
+    display: inline-block;
+    line-height: unset;
+    cursor: pointer;
+    .yc-checkbox {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: rgba(0, 0, 0, .85);
+        font-size: 14px;
+        font-variant: tabular-nums;
+        list-style: none;
+        font-feature-settings: "tnum";
+        position: relative;
+        top: -.09em;
+        display: inline-block;
+        white-space: nowrap;
+        vertical-align: middle;
+        outline: none;
+        cursor: pointer;
 
-    &-input {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        //opacity: 0;
-    }
+        // 被点击后的样式
+        &.yc-checkbox-checked {
 
-    &-checked {
-        border-color: $blue;
-        &::before {
-            $delta: 6px;
-            content: '';
-            width: $width - $delta;
-            height: $width - $delta;
-            background: $blue;
+            position: relative;
+
+            .yc-checkbox-inner {
+                background-color: #1890ff;
+                border-color: #1890ff;
+                position: relative;
+
+
+                top: 0;
+                left: 0;
+                display: block;
+                width: 16px;
+                height: 16px;
+                direction: ltr;
+                border-radius: 2px;
+                border-collapse: separate;
+                -webkit-transition: all .3s;
+                transition: all .3s;
+                &:after {
+                    position: absolute;
+                    display: table;
+                    border: 2px solid #fff;
+                    border-top: 0;
+                    border-left: 0;
+                    transform: rotate(45deg) scale(1) translate(-50%, -50%);
+                    opacity: 1;
+                    transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+                    content: " ";
+                    top: 6px;
+                    left: 3px;
+                    width: 5px;
+                    height: 10px;
+                }
+            }
+
+        }
+
+
+        //未点击的样式
+
+        .yc-checkbox-inner {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 16px;
+            height: 16px;
+            direction: ltr;
+            background-color: #fff;
+            border: 1px solid #d9d9d9;
+            border-radius: 2px;
+            border-collapse: separate;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+        }
+
+        input[type=checkbox], input[type=radio] {
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        .yc-checkbox-input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            opacity: 0;
         }
     }
-
-    &-wrapper {
-        display: inline-flex;
-        align-items: center;
-        vertical-align: top;
-    }
-
-    &-wrapper + &-wrapper {
-        margin-left: 1em;
-    }
-
-    &-label {
-        margin-left: .2em;
-    }
-
 }
+
+

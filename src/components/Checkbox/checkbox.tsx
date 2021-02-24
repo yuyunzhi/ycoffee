@@ -10,20 +10,26 @@ export interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 const Checkbox: FC<IProps> = forwardRef((props, ref) => {
   const { className, checked, children, ...restProps } = props;
 
-  const spanClassName = classNames("yc-check", className, {
-    "yc-check-checked": checked,
+  // const spanClassName = classNames("yc-check", className, {
+  //   "yc-check-checked": checked,
+  //   "yc-check-indeterminate":true
+  // });
+
+  const spanClassName = classNames("yc-checkbox", className, {
+    "yc-checkbox-checked": checked,
   });
 
   return (
-    <label className="yc-check-wrapper">
+    <label className="yc-checkbox-wrapper">
       <span className={spanClassName}>
         <input
           ref={ref}
-          className="yc-check-input"
+          className="yc-checkbox-input"
           type="checkbox"
           checked={checked}
           {...restProps}
         />
+        <span className="yc-checkbox-inner" />
       </span>
       <span className="yc-check-label">{children}</span>
     </label>

@@ -13,7 +13,7 @@ function App() {
     setCurrentPager(a);
   };
 
-  const [isChecked, setIsChecked] = useState<boolean>(true);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   console.log(isChecked);
   return (
     <div className="App">
