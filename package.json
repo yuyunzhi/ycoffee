@@ -47,7 +47,7 @@
     "build-ts": "tsc -p tsconfig.build.json",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "husky": {
     "hooks": {
@@ -94,6 +94,8 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-jest": "^24.1.5",
+    "eslint-plugin-prettier": "^3.3.1",
     "git-cz": "^4.7.6",
     "husky": "^4.2.5",
     "lint-staged": ">=10",

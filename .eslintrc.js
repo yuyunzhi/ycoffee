@@ -24,7 +24,6 @@ module.exports = {
     },
     ecmaVersion: 2018, // 指定支持版本
     sourceType: "module", //指定来源的类型，有两种script module
-    project: "./tsconfig.json",
   },
   rules: {
     "linebreak-style": "off",
@@ -48,8 +47,16 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-no-target-blank": "off",
     "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "prefer-const": "off",
+    "prefer-spread": "off",
+    "@typescript-eslint/parser": "off",
+    "@typescript-eslint/no-empty-function": "off",
     "prettier/prettier": [
-      "error",
+      "off",
       {
         endOfLine: "auto",
       },

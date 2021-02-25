@@ -1,12 +1,27 @@
 {
   "compilerOptions": {
-    "outDir": "dist", // 输出的文件夹
     "module": "esnext",
-    "target": "es5",// 使用的是什么版本
-    "declaration": true, // 对每个ts文件都生成一个d.ts文件
-    "jsx": "react", //
-    "moduleResolution":"Node",
-    "allowSyntheticDefaultImports": true // 支持import React from 'react' 这种引入方式
+    "target": "es5",
+    // 使用的是什么版本
+    "declaration": true,
+    // 对每个ts文件都生成一个d.ts文件
+    "allowSyntheticDefaultImports": true,
+    // 支持import React from 'react' 这种引入方式
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react"
   },
   "include": [ // 要编译的文件
     "src"
