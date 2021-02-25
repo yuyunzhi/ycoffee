@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/ycoffee/static/css/main.a17a2148.chunk.css",
+    "main.js": "/ycoffee/main.69b5e27951987f942e11.bundle.js",
+    "main.css.map": "/ycoffee/static/css/main.a17a2148.chunk.css.map",
+    "main.js.map": "/ycoffee/main.69b5e27951987f942e11.bundle.js.map",
+    "runtime~main.js": "/ycoffee/runtime~main.69b5e27951987f942e11.bundle.js",
+    "runtime~main.js.map": "/ycoffee/runtime~main.69b5e27951987f942e11.bundle.js.map",
+    "vendors~main.css": "/ycoffee/static/css/vendors~main.f8f248a5.chunk.css",
+    "vendors~main.js": "/ycoffee/vendors~main.69b5e27951987f942e11.bundle.js",
+    "vendors~main.css.map": "/ycoffee/static/css/vendors~main.f8f248a5.chunk.css.map",
+    "vendors~main.js.map": "/ycoffee/vendors~main.69b5e27951987f942e11.bundle.js.map",
+    "iframe.html": "/ycoffee/iframe.html",
+    "precache-manifest.bbe00ec29831b22515610a9cd5feb616.js": "/ycoffee/precache-manifest.bbe00ec29831b22515610a9cd5feb616.js",
+    "service-worker.js": "/ycoffee/service-worker.js",
+    "static/media/down.png": "/ycoffee/static/media/down.c03fca72.png",
+    "vendors~main.69b5e27951987f942e11.bundle.js.LICENSE.txt": "/ycoffee/vendors~main.69b5e27951987f942e11.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.69b5e27951987f942e11.bundle.js",
+    "static/css/vendors~main.f8f248a5.chunk.css",
+    "vendors~main.69b5e27951987f942e11.bundle.js",
+    "static/css/main.a17a2148.chunk.css",
+    "main.69b5e27951987f942e11.bundle.js"
+  ]
+}
